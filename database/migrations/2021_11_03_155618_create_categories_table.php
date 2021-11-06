@@ -16,8 +16,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('slug')->unique();
-            $table->enum('status', ['on', 'off']);
+            $table->boolean('status');
             $table->softDeletes('deleted_at');
             $table->timestamps();
         });

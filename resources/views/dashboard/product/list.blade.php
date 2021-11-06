@@ -7,7 +7,7 @@
     </div>
 @endsection
 
-@section('konten')
+@section('content')
     
     <!-- Searching -->
     <div class="row g-3 my-2">
