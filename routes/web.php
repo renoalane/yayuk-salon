@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminControllers\CategoryController;
+use App\Http\Controllers\AdminControllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,10 @@ use App\Http\Controllers\AdminControllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.category.list');
+Route::get('/dashboard', function () {
+    return view('dashboard.index', [
+        'active' => "dashboard"
+    ]);
 });
 
 
@@ -29,3 +32,9 @@ Route::put('dashboard/category/{category}', [CategoryController::class, 'update'
 Route::delete('dashboard/category/{category}', [CategoryController::class, 'destroy'])->name('dashboard.category.destroy');
 
 // Products
+Route::get('dashboard/products/', [ProductController::class, 'index'])->name('dashboard.product');
+Route::get('dashboard/product/create/', [ProductController::class, 'create'])->name('dashboard.product.create');
+Route::post('dashboard/products/', [ProductController::class, 'store'])->name('dashboard.product.store');
+Route::get('dashboard/product/{product}', [ProductController::class, 'edit'])->name('dashboard.product.edit');
+Route::put('dashboard/product/{product}', [ProductController::class, 'update'])->name('dashboard.product.update');
+Route::delete('dashboard/product/{product}', [ProductController::class, 'destroy'])->name('dashboard.product.destroy');
