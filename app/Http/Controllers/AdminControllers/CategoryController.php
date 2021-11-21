@@ -26,6 +26,7 @@ class CategoryController extends Controller
 
         return view('dashboard.category.list', [
             'categories' => $categories,
+            'title' => 'category',
             'active' => 'categories',
             'request' => $request
         ]);
@@ -40,6 +41,7 @@ class CategoryController extends Controller
     {
         return view('dashboard.category.form', [
             'active' => 'categories',
+            'title' => 'category',
             'button' => 'Create',
             'url' => 'dashboard.category.store'
         ]);
@@ -54,7 +56,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|unique:categories',
             'status' => 'required',
         ]);
 
@@ -86,6 +88,7 @@ class CategoryController extends Controller
     {
         return view('dashboard.category.form', [
             'active' => 'categories',
+            'title' => 'category',
             'button' => 'Update',
             'category' => $category,
             'url' => 'dashboard.category.update'
@@ -101,10 +104,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $validateData = $request->validate([
-            'name' => 'required|max:255',
+        $rules = [
             'status' => 'required',
-        ]);
+        ];
+
+        if ($request->name != $category->name) {
+            $rules['name'] = 'required|unique:categories';
+        }
+
+        $validateData = $request->validate($rules);
 
         Category::where('id', $category->id)
             ->update($validateData);
@@ -122,11 +130,17 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        Category::destroy($category->id);
+        $deleteCategory = Category::withCount('product')->find($category);
 
+        foreach ($deleteCategory as $delete) {
 
-        return redirect()
-            ->route('dashboard.category')
-            ->with('success', 'Category has been deleted');
+            if ($delete->product_count === 0) {
+                $category->delete();
+                return redirect()
+                    ->route('dashboard.category')
+                    ->with('success', 'Category has been deleted');
+            }
+        }
+        return redirect()->back()->with('failed', 'Category used on product');
     }
 }
