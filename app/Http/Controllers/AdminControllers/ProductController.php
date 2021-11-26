@@ -6,7 +6,6 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\Validator;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -29,6 +28,7 @@ class ProductController extends Controller
 
         return view('dashboard.product.list', [
             'products' => $products,
+            'title' => 'product',
             'active' => 'products',
             'request' => $request
         ]);
@@ -43,6 +43,7 @@ class ProductController extends Controller
     {
         return view('dashboard.product.form', [
             'active' => 'products',
+            'title' => 'product',
             'button' => 'Create',
             'url' => 'dashboard.product.store',
             'categories' => Category::all()->where('status', 1)
@@ -100,6 +101,7 @@ class ProductController extends Controller
     {
         return view('dashboard.product.form', [
             'active' => 'products',
+            'title' => 'product',
             'button' => 'Update',
             'product' => $product,
             'categories' => Category::all()->where('status', 1),
