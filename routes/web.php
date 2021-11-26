@@ -6,8 +6,10 @@ use App\Http\Controllers\AdminControllers\ProductController;
 use App\Http\Controllers\AdminControllers\ServiceController;
 use App\Http\Controllers\AdminControllers\CategoryController;
 use App\Http\Controllers\AdminControllers\DashboardController;
+use App\Http\Controllers\AdminControllers\UserController;
 use App\Http\Controllers\AuthControllers\LoginController;
 use App\Http\Controllers\AuthControllers\RegisterController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +59,10 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard/service/{service}', [ServiceController::class, 'edit'])->name('dashboard.service.edit');
     Route::put('dashboard/service/{service}', [ServiceController::class, 'update'])->name('dashboard.service.update');
     Route::delete('dashboard/service/{service}', [ServiceController::class, 'destroy'])->name('dashboard.service.destroy');
+
+    // Users
+    Route::get('dashboard/users/', [UserController::class, 'index'])->name('dashboard.user');
+    Route::get('dashboard/user/{user}', [UserController::class, 'edit'])->name('dashboard.user.edit');
+    Route::put('dashboard/user/{user}', [UserController::class, 'update'])->name('dashboard.user.update');
+    Route::delete('dashboard/user/{user}', [UserController::class, 'destroy'])->name('dashboard.user.destroy');
 });
