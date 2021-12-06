@@ -57,7 +57,9 @@ class ServiceController extends Controller
     {
         $validateData = $request->validate([
             'name' => 'required|max:255|unique:services',
-            'price' => 'required',
+            'description' => 'required',
+            'price' => 'required|regex:^[1-9][0-9]+^|not_in:0',
+            'duration' => 'required',
             'status' => 'required',
         ]);
 
@@ -106,7 +108,9 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         $rules = [
-            'price' => 'required',
+            'description' => 'required',
+            'price' => 'required|regex:^[1-9][0-9]+^|not_in:0',
+            'duration' => 'required',
             'status' => 'required',
         ];
 

@@ -37,9 +37,21 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-2">
+                                <label for="description">Description</label>
+                                <input id="description" type="hidden" name="description" value="{{ old('description') ?? $service->description ?? '' }}">
+                                <trix-editor input="description"></trix-editor>
+                            </div>
+                            <div class="form-group mb-2">
                                 <label for="price" class="mb-2">Price</label>
-                                <input name="price" type="text" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') ?? $service->price ?? '' }}">
+                                <input name="price" type="number" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') ?? $service->price ?? '' }}" placeholder="(ex:20000)" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="9">
                                 @error('price')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="duration" class="mb-2">Duration</label>
+                                <input name="duration" type="number" class="form-control @error('duration') is-invalid @enderror" value="{{ old('duration') ?? $service->duration ?? '' }}" placeholder="(in Minute, ex:60)" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="9">
+                                @error('duration')
                                     {{ $message }}
                                 @enderror
                             </div>

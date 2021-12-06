@@ -53,6 +53,7 @@
                         <th scope="col" width="50">#</th>
                         <th scope="col">Service Name</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Duration</th>
                         <th scope="col">Status</th>
                         <th scope="col" class="text-center">Action</th>
                     </tr>
@@ -65,6 +66,7 @@
                             <th scope="row">{{ ($services->currentPage()-1) * $services->perPage() + $loop->iteration }}</th>
                             <td>{{ $service->name }}</td>
                             <td>{{ number_format($service->price) }}</td>
+                            <td>{{ $service->duration }}</td>
                             @if ($service->status == 1)
                                 <td>Active</td>
                             @else
