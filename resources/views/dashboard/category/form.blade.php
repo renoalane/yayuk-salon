@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.main')
 
-{{-- Untuk Heading --}}
+{{-- Heading --}}
 @section('heading')
     <div class="d-flex align-items-center">
         <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
@@ -8,7 +8,7 @@
     </div>
 @endsection
 
-{{-- Untuk Konten --}}
+{{-- Content --}}
 @section('content')
     
 
