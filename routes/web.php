@@ -1,15 +1,18 @@
 <?php
 
 
+use App\Models\User;
+use PhpParser\Node\Expr\FuncCall;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminControllers\ProductController;
-use App\Http\Controllers\AdminControllers\ServiceController;
-use App\Http\Controllers\AdminControllers\CategoryController;
-use App\Http\Controllers\AdminControllers\DashboardController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminControllers\UserController;
 use App\Http\Controllers\AuthControllers\LoginController;
+use App\Http\Controllers\AdminControllers\ProductController;
+use App\Http\Controllers\AdminControllers\ServiceController;
 use App\Http\Controllers\AuthControllers\RegisterController;
-use App\Models\User;
+use App\Http\Controllers\AdminControllers\CategoryController;
+use App\Http\Controllers\AdminControllers\DashboardController;
+use App\Http\Controllers\UserControllers\UserBookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,14 +25,44 @@ use App\Models\User;
 |
 */
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'autenticate']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/', function () {
+    return view('frontEndCustomer.index');
+})->name('home');
+Route::get('/products', function () {
+    return view('frontEndCustomer.products.list', [
+        'title' => 'Products'
+    ]);
+})->name('product');
+
+// Booking
+Route::middleware('auth')->group(function () {
+    Route::get('/booking/', [UserBookingController::class, 'index'])->name('user.booking');
+    Route::get('/booking/create/', [UserBookingController::class, 'create'])->name('user.booking.create');
+    Route::post('/booking/', [UserBookingController::class, 'store'])->name('user.booking.store');
+    Route::get('/booking/{booking}', [UserBookingController::class, 'show'])->name('user.booking.show');
+});
+// End Booking
+
+
+Route::get('/product/{product}', function () {
+    return view('frontEndCustomer.products.list', [
+        'title' => 'Products'
+    ]);
+})->name('product.detail');
 
 // Register
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
+// Login
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'autenticate']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Users
+
+
+// Admin
 Route::middleware('auth')->group(function () {
 
     // Dashboard
