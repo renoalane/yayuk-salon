@@ -13,7 +13,7 @@
                 <li class="dropdown-item">
                     <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                            <button type="submit" class="border-0 bg-transparent">Logout</button>
+                            <button type="submit" class="border-0 bg-transparent w-100 p-0 text-start">Logout</button>
                     </form>
                 </li>
             </ul>
