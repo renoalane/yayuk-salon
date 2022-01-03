@@ -31,7 +31,7 @@ class LoginController extends Controller
             if (auth()->user()->is_admin === 0) {
 
                 // Customer
-                return redirect()->intended('home');
+                return redirect()->intended('/');
             } else {
 
                 // Admin
