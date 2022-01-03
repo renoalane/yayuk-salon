@@ -22,6 +22,7 @@
     {{-- End Searching --}}
 
     {{-- Information CRUD --}}
+    {{-- Success --}}
     @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>
@@ -30,7 +31,18 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+
+    {{-- Failed --}}
+    @if (session()->has('failed'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>
+            {{ session('failed') }}
+        </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     {{-- End Information CRUD --}}
+
 
     <!-- Button Create -->
     <div class="row g-3 my-2">
@@ -66,7 +78,7 @@
                             <th scope="row">{{ ($services->currentPage()-1) * $services->perPage() + $loop->iteration }}</th>
                             <td>{{ $service->name }}</td>
                             <td>{{ number_format($service->price) }}</td>
-                            <td>{{ $service->duration }}</td>
+                            <td>{{ $service->duration }} minute</td>
                             @if ($service->status == 1)
                                 <td>Active</td>
                             @else
@@ -81,7 +93,7 @@
                             </td>
                         </tr>
                     @empty
-                        <th colspan="5" class="text-center">Empty Service</th>
+                        <th colspan="6" class="text-center">Empty Service</th>
                     @endforelse
                 </tbody>
             </table>

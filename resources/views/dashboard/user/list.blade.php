@@ -21,7 +21,9 @@
     </div>
     {{-- End Searching --}}
 
+
     {{-- Information CRUD --}}
+    {{-- Success --}}
     @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>
@@ -30,7 +32,18 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+
+    {{-- Failed --}}
+    @if (session()->has('failed'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>
+            {{ session('failed') }}
+        </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     {{-- End Information CRUD --}}
+
 
     {{-- Content Table --}}
     <div class="row my-2">
