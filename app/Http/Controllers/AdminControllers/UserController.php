@@ -124,7 +124,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         if (Auth::id() === $user->id) {
-            return redirect()->route("dashboard.user")->with('success', 'User is already used');
+            return redirect()->route("dashboard.user")->with('failed', 'User is already used');
         } else {
             $user->delete();
         }
