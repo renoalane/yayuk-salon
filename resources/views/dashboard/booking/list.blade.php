@@ -4,7 +4,7 @@
 @section('heading')
     <div class="d-flex align-items-center">
         <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-        <h2 class="fs-2 m-0">Categories</h2>
+        <h2 class="fs-2 m-0">Bookings</h2>
     </div>
 @endsection
 
@@ -20,6 +20,18 @@
             </form>
     </div>
     {{-- End Searching --}}
+    {{-- Date --}}
+    <div class="row g-3 my-2">
+        <div class="col-5">
+            <label class="form-label">From</label>
+            <form class="d-flex">
+                <input type="date" class="form-control me-2" name="d" value="{{ $request['q'] ?? '' }}" aria-label="date">
+                <input type="date" class="form-control me-2" name="d" value="{{ $request['d'] ?? '' }}" aria-label="date">
+                <button class="btn btn-primary" type="submit">GET</button>
+            </form>
+        </div>
+    </div>
+    {{-- End Date --}}
 
     {{-- Information CRUD --}}
     {{-- Success --}}
@@ -43,17 +55,9 @@
     @endif
     {{-- End Information CRUD --}}
 
-    <!-- Button Create -->
-    <div class="row g-3 my-2">
-        <div class="col">
-            <a href="{{ route('dashboard.category.create') }}"><button class="btn btn-success">+ Category</button></a>
-        </div>
-    </div>
-    {{-- End Button Create --}}
-
     {{-- Content Table --}}
     <div class="row my-2">
-        <h3 class="fs-4 my-3">List Category</h3>
+        <h3 class="fs-4 my-3">List Booking</h3>
         <div class="col">
 
             {{-- Table Categories --}}
@@ -61,41 +65,53 @@
             <table class="table bg-white rounded shadow-sm table-hover table-striped table-responsive-sm">
                 <thead>
                     <tr>
-                        <th scope="col" width="50">#</th>
-                        <th scope="col">Category Name</th>
+                        <th scope="col">Code booking</th>
+                        <th scope="col">Name User</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Start time</th>
+                        <th scope="col">End time</th>
+                        <th scope="col">Total Price</th>
                         <th scope="col">Status</th>
                         <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @forelse ($categories as $category)
+                    @forelse ($bookings as $booking)
                     
                         <tr>
-                            <th scope="row">{{ ($categories->currentPage()-1) * $categories->perPage() + $loop->iteration }}</th>
-                            <td>{{ $category->name }}</td>
-                            @if ($category->status == 1)
-                                <td>Active</td>
+                            <th scope="row">{{ $booking->code_booking }}</th>
+                            <td>{{ $booking->user_name }}</td>
+                            <td>{{ date("d-m-Y", strtotime($booking->date)) }}</td>
+                            <td>{{ date("H:i", strtotime($booking->start_time)) }}</td>
+                            <td>{{ date("H:i", strtotime($booking->end_time)) }}</td>
+                            <td>{{ number_format($booking->total_price) }}</td>
+                            @if ($booking->status === 0)
+                                <td><span class="badge bg-secondary">New</span></td>
+                            @elseif($booking->status === 1)
+                                <td><span class="badge bg-primary">Confirmed</span></td>
+                            @elseif($booking->status === 2)
+                                <td><span class="badge bg-success">Done</span></td>
                             @else
-                                <td>Non Active</td>
+                                <td><span class="badge bg-danger">Rejected</span></td>
                             @endif
                             <td class="text-center">
-                                {{-- button edit --}}
-                                <a href="{{ route('dashboard.category.edit', $category->id) }}" class="btn btn-sm btn-warning"><i class="far fa-edit"> Edit</i></a>
+                                {{-- button detail --}}
+                                <a href="{{ route('dashboard.booking.show', $booking->code_booking) }}" class="btn btn-sm btn-info"><i class="far fa-edit"> Detail</i></a>
                         
-                                {{-- button delete --}}
-                                <button class="btn btn-sm btn-danger btnDelete" data-bs-toggle='modal' data-id= "{{ $category->id }}"data-bs-target='#deleteModal'><i class="far fa-trash-alt"> Hapus</i></button>
+                                {{-- button edit --}}
+                                <a href="/dashboard/booking/{{ $booking->code_booking }}/edit" class="btn btn-sm btn-warning"><i class="far fa-edit"> Edit Status</i></a>
                             </td>
                         </tr>
                     @empty
-                        <th colspan="4" class="text-center">Empty Category</th>
+                        <th colspan="4" class="text-center">Empty Booking</th>
                     @endforelse
                 </tbody>
             </table>
 
             {{-- Pagination --}}
         
-            {{ $categories->appends($request)->links() }}
+            {{ $bookings->appends($request)->links() }}
 
         </div>
     </div>

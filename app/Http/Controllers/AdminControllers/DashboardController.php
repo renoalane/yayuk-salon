@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminControllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class DashboardController extends Controller
             'active' => 'dashboard',
             'title' => 'dashboard',
             'products' => Product::count(),
-            'users' => User::count()
+            'users' => User::count(),
+            'bookings' => Booking::count()
         ]);
     }
 }

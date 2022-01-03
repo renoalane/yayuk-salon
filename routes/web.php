@@ -4,7 +4,7 @@
 use App\Models\User;
 use PhpParser\Node\Expr\FuncCall;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookingController;
+use App\Http\Controllers\AdminControllers\BookingController;
 use App\Http\Controllers\AdminControllers\UserController;
 use App\Http\Controllers\AuthControllers\LoginController;
 use App\Http\Controllers\AdminControllers\ProductController;
@@ -51,11 +51,11 @@ Route::get('/product/{product}', function () {
 })->name('product.detail');
 
 // Register
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 // Login
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'autenticate']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
@@ -68,11 +68,20 @@ Route::middleware('auth')->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    // Bookings
+    Route::get('dashboard/bookings/', [BookingController::class, 'index'])->name('dashboard.booking');
+    Route::get('dashboard/booking/create/', [BookingController::class, 'create'])->name('dashboard.booking.create');
+    Route::post('dashboard/bookings/', [BookingController::class, 'store'])->name('dashboard.booking.store');
+    Route::get('dashboard/booking/{booking:code_booking}', [BookingController::class, 'show'])->name('dashboard.booking.show');
+    Route::get('dashboard/booking/{booking:code_booking}/edit', [BookingController::class, 'edit'])->name('dashboard.booking.edit');
+    Route::put('dashboard/booking/{booking:code_booking}', [BookingController::class, 'update'])->name('dashboard.booking.update');
+    Route::delete('dashboard/booking/{booking}', [BookingController::class, 'destroy'])->name('dashboard.booking.destroy');
+
 
     // Category
-    Route::get('dashboard/category/', [CategoryController::class, 'index'])->name('dashboard.category');
+    Route::get('dashboard/categories/', [CategoryController::class, 'index'])->name('dashboard.category');
     Route::get('dashboard/category/create/', [CategoryController::class, 'create'])->name('dashboard.category.create');
-    Route::post('dashboard/category/', [CategoryController::class, 'store'])->name('dashboard.category.store');
+    Route::post('dashboard/categories/', [CategoryController::class, 'store'])->name('dashboard.category.store');
     Route::get('dashboard/category/{category}', [CategoryController::class, 'edit'])->name('dashboard.category.edit');
     Route::put('dashboard/category/{category}', [CategoryController::class, 'update'])->name('dashboard.category.update');
     Route::delete('dashboard/category/{category}', [CategoryController::class, 'destroy'])->name('dashboard.category.destroy');

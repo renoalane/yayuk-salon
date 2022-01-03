@@ -18,7 +18,7 @@ class CreateBookingsTable extends Migration
             $table->string('code_booking')->unique();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('name');
+            $table->string('user_name');
             $table->date('date');
             $table->time('start_time');
             $table->time('end_time');
