@@ -30,7 +30,8 @@ class ProductController extends Controller
             'products' => $products,
             'title' => 'product',
             'active' => 'products',
-            'request' => $request
+            'request' => $request,
+            'categories' => Category::count()
         ]);
     }
 
@@ -123,8 +124,8 @@ class ProductController extends Controller
             'category_id' => 'required',
             'description' => 'required',
             'image' => 'image|file|max:2048',
-            'stok' => 'required',
-            'price' => 'required',
+            'stok' => 'required|numeric|gt:0',
+            'price' => 'required|regex:^[1-9][0-9]+|not_in:0',
             'status' => 'required'
         ]);
 
