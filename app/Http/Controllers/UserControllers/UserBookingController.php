@@ -100,7 +100,7 @@ class UserBookingController extends Controller
         // dd($time, $total_duration, $request->start_time, $end_time);
 
         $rules = [
-            'name' => auth()->user()->name,
+            'user_name' => auth()->user()->name,
             'date' => $request->date,
             'start_time' => $request->start_time,
             'total_price' => 0
@@ -126,7 +126,7 @@ class UserBookingController extends Controller
             DetailBooking::create([
                 'booking_id' => $booking->id,
                 'service_id' => $service->id,
-                'name' => $service->name,
+                'service_name' => $service->name,
                 'service_price' => $service->price,
                 'service_duration' => $service->duration
             ]);
