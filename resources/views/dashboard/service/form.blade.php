@@ -39,7 +39,10 @@
                             <div class="form-group mb-2">
                                 <label for="description">Description</label>
                                 <input id="description" type="hidden" name="description" value="{{ old('description') ?? $service->description ?? '' }}">
-                                <trix-editor input="description"></trix-editor>
+                                <trix-editor input="description" placeholder="Maxsimal 50 huruf"></trix-editor>
+                                @error('description')
+                                    {{ $message }}
+                                @enderror
                             </div>
                             <div class="form-group mb-2">
                                 <label for="price" class="mb-2">Price</label>

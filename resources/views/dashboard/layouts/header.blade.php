@@ -8,14 +8,14 @@
                 <i class="fas fa-user me-2"></i>{{ auth()->user()->username }}
             </a>
             <ul class="dropdown-menu" style="position: absolute; left:-13px;" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li class="dropdown-item">
+                {{-- <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li> --}}
+                <li>
                     <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                            <button type="submit" class="border-0 bg-transparent w-100 p-0 text-start">Logout</button>
+                      @csrf
+                      <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
                     </form>
-                </li>
+                  </li>
             </ul>
         </li>
     </ul>

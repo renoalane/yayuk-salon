@@ -15,17 +15,18 @@ class BookingController extends Controller
      */
     public function index(Request $request, Booking $bookings)
     {
-        $q = $request->input('q');
+        $sd = $request->input('s');
 
-        $d = $request->input('d');
+        $ed = $request->input('e');
 
-        // dd($d, $q);
-        // $bookings = $bookings->when($d, function ($query) use ($d) {
-        //     return $query->where('date', 'like', '%' . $d . '%');
+        if ($sd && $ed) {
+            $bookings = Booking::whereBetween('date', [$sd, $ed])->orderBy('date', 'asc')->paginate(5);
+        } else {
+            $bookings = Booking::orderBy('date', 'asc')->paginate(5);
+        }
+        // $bookings = $bookings->when($q, function ($query) use ($q) {
+        //     return $query->where('name', 'like', '%' . $q . '%');
         // })->paginate(5);
-        $bookings = $bookings->when($q, function ($query) use ($q) {
-            return $query->where('name', 'like', '%' . $q . '%');
-        })->paginate(5);
 
         // Menumpuk searching dan pagiation
         $request = $request->all();

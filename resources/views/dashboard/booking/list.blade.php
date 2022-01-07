@@ -11,7 +11,7 @@
 {{-- Content --}}
 @section('content')
     
-    <!-- Searching -->
+    {{-- <!-- Searching -->
     <div class="row g-3 my-2">
         <form class="d-flex">
             <input class="form-control me-2" type="search" name="q" value="{{ $request['q'] ?? '' }}" placeholder="Search" aria-label="Search">
@@ -19,17 +19,29 @@
             mit">Search</button>
             </form>
     </div>
-    {{-- End Searching --}}
+    End Searching --}}
     {{-- Date --}}
     <div class="row g-3 my-2">
         <div class="col-5">
-            <label class="form-label">From</label>
             <form class="d-flex">
-                <input type="date" class="form-control me-2" name="d" value="{{ $request['q'] ?? '' }}" aria-label="date">
-                <input type="date" class="form-control me-2" name="d" value="{{ $request['d'] ?? '' }}" aria-label="date">
-                <button class="btn btn-primary" type="submit">GET</button>
+                <div class="px-2">
+                    <label class="form-label">From</label>
+                    <input type="date" class="form-control me-2" name="s" value="{{ $request['s'] ?? '' }}" aria-label="date">
+                </div>
+                <div class="px-2">
+                    <label class="form-label">To</label>
+                    <input type="date" class="form-control me-2" name="e" value="{{ $request['e'] ?? '' }}" aria-label="date">
+                </div>
+                <div class="position-relative">
+                    <button class="btn btn-primary position-absolute bottom-0" type="submit">GET</button>
+                </div>
             </form>
         </div>
+    </div>
+    <div class="row g-3 my-2">
+        <a href="{{ route('dashboard.booking') }}">
+            <button class="btn btn-primary ms-2" type="submit">GET All</button>
+        </a>
     </div>
     {{-- End Date --}}
 
@@ -59,9 +71,6 @@
     <div class="row my-2">
         <h3 class="fs-4 my-3">List Booking</h3>
         <div class="col">
-
-            {{-- Table Categories --}}
-
             <table class="table bg-white rounded shadow-sm table-hover table-striped table-responsive-sm">
                 <thead>
                     <tr>
@@ -82,7 +91,7 @@
                         <tr>
                             <th scope="row">{{ $booking->code_booking }}</th>
                             <td>{{ $booking->user_name }}</td>
-                            <td>{{ date("d-m-Y", strtotime($booking->date)) }}</td>
+                            <td>{{ date('l, d F Y', strtotime($booking->date)) }}</td>
                             <td>{{ date("H:i", strtotime($booking->start_time)) }}</td>
                             <td>{{ date("H:i", strtotime($booking->end_time)) }}</td>
                             <td>{{ number_format($booking->total_price) }}</td>
@@ -95,16 +104,13 @@
                             @else
                                 <td><span class="badge bg-danger">Rejected</span></td>
                             @endif
-                            <td class="text-center">
-                                {{-- button detail --}}
-                                <a href="{{ route('dashboard.booking.show', $booking->code_booking) }}" class="btn btn-sm btn-info"><i class="far fa-edit"> Detail</i></a>
-                        
+                            <td class="text-center">                       
                                 {{-- button edit --}}
-                                <a href="/dashboard/booking/{{ $booking->code_booking }}/edit" class="btn btn-sm btn-warning"><i class="far fa-edit"> Edit Status</i></a>
+                                <a href="{{ route('dashboard.booking.edit', $booking->code_booking) }}" class="btn btn-sm btn-warning"><i class="far fa-edit"> Edit Status</i></a>
                             </td>
                         </tr>
                     @empty
-                        <th colspan="4" class="text-center">Empty Booking</th>
+                        <th colspan="8" class="text-center">Empty Booking</th>
                     @endforelse
                 </tbody>
             </table>

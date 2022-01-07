@@ -66,6 +66,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
     {{-- Handle Toggle --}}
     <script>
+
+        // For Show Toogle
         var el = document.getElementById("wrapper");
         var toggleButton = document.getElementById("menu-toggle");
 
@@ -73,11 +75,11 @@
             el.classList.toggle("toggled");
         };
 
-    // Event Listener button delete
-    $(".btnDelete").on("click", function(){
-        const <?=$title;?> = $(this)[0].dataset.id;
-        $(".formDelete").attr('action', `/dashboard/<?=$title;?>/${<?php echo $title;?>}`)
-    });
+        // Event Listener button delete
+        $(".btnDelete").on("click", function(){
+            const <?=$title;?> = $(this)[0].dataset.id;
+            $(".formDelete").attr('action', `/dashboard/<?=$title;?>/${<?php echo $title;?>}`)
+        });
 
     </script>
     // {{-- End Handle --}}

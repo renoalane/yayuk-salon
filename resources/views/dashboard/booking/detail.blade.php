@@ -52,7 +52,7 @@
                                 <ol class="list-group list-group-flush">
                                     <li class="list-group-item border-bottom-0">
                                         <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Booking</div>
+                                            <div class="fw-bold">Created at</div>
                                             {{$booking->created_at->format('l, j F Y')}}
                                         </div>
                                     </li>
@@ -87,33 +87,6 @@
                                         </div>
                                     </li>
                                 </ol>
-                                <form action="{{ route('dashboard.booking.update', $booking->code_booking) }}" method="post">
-                                    @csrf
-                                    @method('put')
-                                    <div class="mb-2">
-                                        <div class="form-group mb-3">
-                                            <label for="status" class="mb-2">Status</label>
-                                            <select name="status" id="status" class="form-select">
-                                                <option value="0" @if ((old('status') ?? $booking->status ?? '') == 0)
-                                                    selected
-                                                @endif>New</option>
-                                                <option value="1" @if ((old('status') ?? $booking->status ?? '') == 1)
-                                                    selected
-                                                @endif>Confirmed</option>
-                                                <option value="2" @if ((old('status') ?? $booking->status ?? '') == 2)
-                                                    selected
-                                                @endif>Done</option>
-                                                <option value="3" @if ((old('status') ?? $booking->status ?? '') == 3)
-                                                    selected
-                                                @endif>Rejected</option>
-                                            </select>                                    
-                                        </div>
-                                    </div>
-                                    <div class="form-group mb-0">
-                                        <a href="{{ route('dashboard.booking') }}"><button type="button" class="btn btn-sm btn-secondary">Cancel</button></a>
-                                        <button type="submit" class="btn btn-success btn-sm">Update</button>
-                                    </div>
-                                </form>
                             </div>
                         </div>
 
