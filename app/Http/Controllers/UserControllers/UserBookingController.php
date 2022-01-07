@@ -17,8 +17,16 @@ class UserBookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        // Menumpuk request
+        $request = $request->all();
+
+        return view('frontEndCustomer.booking.list', [
+            'title' => 'Booking',
+            'bookings' => Booking::where('user_id', auth()->user()->id)->paginate(10),
+            'request' => $request
+        ]);
     }
 
     /**
@@ -42,6 +50,20 @@ class UserBookingController extends Controller
      */
     public function store(Request $request)
     {
+        $oldBooking = Booking::select('date', 'start_time', 'end_time')->get();
+
+        // Validate input
+        $validateData = $request->validate([
+            'date' => 'required|date',
+            'start_time' => 'required'
+        ]);
+
+        // Check Request Service
+        if (is_null($request->service)) {
+            return redirect()
+                ->route('user.booking.create')
+                ->with('failed', 'Service must be required');
+        }
 
         // string to array 
         $time = explode(':', $request->start_time);
@@ -72,20 +94,6 @@ class UserBookingController extends Controller
             }
             $time[0] = $tambahanJam;
             $time[1] = $sisaMenit;
-
-            // if ($minute >= 60 && $minute < 120) {
-            //     $time[0] = $time[0] + (1 * 1);
-            //     $time[1] = $total_duration - (60 * 1 - $time[1]);
-            // } elseif ($minute >= 120 && $minute < 180) {
-            //     $time[0] = $time[0] + (1 * 2);
-            //     $time[1] = $total_duration - (60 * 2 - $time[1]);
-            // } elseif ($minute >= 180 && $minute < ) {
-            //     $time[0] = $time[0] + (1 * 3);
-            //     $time[1] = $total_duration - (60 * 3 - $time[1]);
-            // } else {
-            //     echo "belum";
-            // }
-
         } else {
             $minute = $time[1] + $total_duration;
             if ($minute >= 60) {
@@ -97,25 +105,30 @@ class UserBookingController extends Controller
         }
 
         $end_time = implode(':', $time);
-        // dd($time, $total_duration, $request->start_time, $end_time);
 
-        $rules = [
-            'user_name' => auth()->user()->name,
-            'date' => $request->date,
-            'start_time' => $request->start_time,
-            'total_price' => 0
-        ];
+        // Validate Time and Date if avaible book
+        foreach ($oldBooking as $old) {
+            if ($old->date = $request->date) {
+                if ($request->start_time >= $old->start_time || $end_time <= $old->end_time) {
+                    return redirect()
+                        ->route('user.booking.create')
+                        ->with('failed', 'Sorry, For the time and date someone already booked');
+                }
+            }
+        }
 
         // User Login
-        $rules['user_id'] = auth()->user()->id;
+        $validateData['user_id'] = auth()->user()->id;
+        $validateData['user_name'] = auth()->user()->name;
 
         // Code booking random
-        $rules['code_booking'] = Str::random(3) . '-' . 'ys' . time();
+        $validateData['code_booking'] = Str::random(3) . '-' . 'ys' . time();
 
-        // $rules['excerpt'] = Str::limit(strip_tags($request->description), 200);
-        $rules['end_time'] = $end_time;
+        $validateData['total_price'] = 0;
 
-        $booking =  Booking::create($rules);
+        $validateData['end_time'] = $end_time;
+
+        $booking =  Booking::create($validateData);
 
         $total_price = 0;
         foreach ($request->service as $reqser) {
@@ -133,13 +146,12 @@ class UserBookingController extends Controller
         }
 
         Booking::where('id', $booking->id)->update([
-            'total_price' => $total_price,
-            'end_time' => $end_time
+            'total_price' => $total_price
         ]);
 
         return redirect()
             ->route('user.booking')
-            ->with('success', 'Successfully');
+            ->with('success', 'Thank you for ordering, please wait for confirmation from admin');
     }
 
     /**
@@ -150,7 +162,10 @@ class UserBookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        //
+        return view('frontEndCustomer.booking.detail', [
+            'title' => 'Booking',
+            'booking' => $booking
+        ]);
     }
 
     /**

@@ -22,15 +22,15 @@
     <section class="text-light bg-start pt-lg-5 mt-lg-5 text-center text-sm-start showcase">
         <div class="container">
           <div class="d-sm-flex align-items-center justify-content-evenly">
-            <div class="py-sm-5">
+            <div class="py-5 mt-5">
               <h1 class="first">Welcome to <span class="span-logo">Yayuk Salon</span></h1>
               <img class="img-fluid mx-auto my-3 responsive-img-phone" src="{{ asset('assets/img/kissping.png') }}" />
               <div class="d-sm-block">
-                <button class="btn btn-primary btn-md m-2" data-bs-toggle="modal" data-bs-target="#enroll">Booking</button>
+                <a href="{{ route('user.booking.create') }}" class="btn btn-primary btn-md m-2">Booking</a>
                 <a href="#location"><button class="btn btn-primary btn-md">Location</button></a>
               </div>
             </div>
-            <img class="img-fluid d-none d-sm-block responsive-img" src="{{ asset('assets/img/kissping.png') }}" alt="" />
+            <img class="img-fluid d-none d-sm-block responsive-img pt-sm-5" src="{{ asset('assets/img/kissping.png') }}" alt="" />
           </div>
         </div>
       </section>
@@ -41,7 +41,7 @@
         <div class="container">
           <div class="description p-lg-5 p-sm-0">
             <h2>Yayuk Salon</h2>
-            <p>Prioritizing comfort and privacy for women who want to do beauty treatments, is the main priority of Yayuk Salon. Does not accept male customers and is expected to provide maximum comfort.</p>
+            <p class="fs-6">Prioritizing comfort and privacy for women who want to do beauty treatments, is the main priority of Yayuk Salon. Does not accept male customers and is expected to provide maximum comfort.</p>
           </div>
           <div class="row g-2 pb-lg-5 px-lg-5 p-sm-0">
             <div class="col-md-6 col-lg-4"><img class="img-fluid rounded" src="{{ asset('assets/img/profil1.jpg') }}" alt="" /></div>
@@ -56,7 +56,7 @@
       <section class="show-main-service p-5">
         <div class="containter">
           <h2 class="text-center mb-4 service-description">Enjoy Our Best Service</h2>
-          <p class="pb-4 pt-2 service-description">Yayuk Salon serves hair and facial beauty treatments for Indonesian women with quality ingredients that are safe for health.</p>
+          <p class="pb-4 fs-6 pt-2 service-description">Yayuk Salon serves hair and facial beauty treatments for Indonesian women with quality ingredients that are safe for health.</p>
           <div class="d-md-flex justify-content-evenly align-items-center text-center">
             <div class="icon-section">
               <div class="icon rounded-circle">
