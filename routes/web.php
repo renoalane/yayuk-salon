@@ -13,6 +13,7 @@ use App\Http\Controllers\AuthControllers\RegisterController;
 use App\Http\Controllers\AdminControllers\CategoryController;
 use App\Http\Controllers\AdminControllers\DashboardController;
 use App\Http\Controllers\UserControllers\UserBookingController;
+use App\Http\Controllers\UserControllers\UserServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,17 +30,20 @@ Route::get('/', function () {
     return view('frontEndCustomer.index');
 })->name('home');
 Route::get('/products', function () {
-    return view('frontEndCustomer.products.list', [
-        'title' => 'Products'
-    ]);
+    return view('frontEndCustomer.booking.detail');
 })->name('product');
+
+// List Services User
+Route::get('/services/', [UserServiceController::class, 'index'])->name('user.service');
+
+
 
 // Booking
 Route::middleware('auth')->group(function () {
     Route::get('/booking/', [UserBookingController::class, 'index'])->name('user.booking');
     Route::get('/booking/create/', [UserBookingController::class, 'create'])->name('user.booking.create');
     Route::post('/booking/', [UserBookingController::class, 'store'])->name('user.booking.store');
-    Route::get('/booking/{booking}', [UserBookingController::class, 'show'])->name('user.booking.show');
+    Route::get('/booking/{booking:code_booking}', [UserBookingController::class, 'show'])->name('user.booking.show');
 });
 // End Booking
 

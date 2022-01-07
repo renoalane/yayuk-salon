@@ -1,6 +1,6 @@
 /* Logo */
 .logo {
-    width: 40px;
+    width: 3rem;
 }
 /* end Logo */
 
@@ -10,7 +10,7 @@ nav {
 }
 nav .nav-link {
     color: #e3d6e0 !important;
-    font-size: 13px;
+    font-size: 1rem;
 }
 nav .nav-link:hover {
     color: white !important;
@@ -122,12 +122,22 @@ nav .nav-link:hover {
 }
 /* End Show Main Product */
 
+/* User Booking */
+.booking-user {
+    min-height: 100vh;
+}
+
+/* End User Booking */
+
 /* Form Booking */
 
 /* List-Service */
 .list-services {
     max-height: 25rem;
     overflow-y: scroll;
+}
+.service-information {
+    width: 100%;
 }
 .description-service {
     font-size: 0.9rem;
@@ -146,7 +156,7 @@ nav .nav-link:hover {
 /* ENd List-service */
 
 .booking-form {
-    max-height: 100vh;
+    min-height: 100vh;
 }
 .brown-text {
     color: grey;
@@ -196,6 +206,11 @@ nav .nav-link:hover {
 /* End Nota */
 
 /* End Form Booking */
+
+.pagination {
+    background-color: white;
+    margin-top: 1rem;
+}
 
 /* Footer */
 footer {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminControllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -57,7 +58,7 @@ class ServiceController extends Controller
     {
         $validateData = $request->validate([
             'name' => 'required|max:255|unique:services',
-            'description' => 'required',
+            'description' => 'required|max:500',
             'price' => 'required|regex:^[1-9][0-9]+^|not_in:0',
             'duration' => 'required',
             'status' => 'required',

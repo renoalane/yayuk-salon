@@ -14,7 +14,7 @@
             <a href="{{ route('home') }}" class="nav-link">Home</a>
           </li>
           <li class="nav-item me-4">
-            <a href="#layanan" class="nav-link">Services</a>
+            <a href="{{ route('user.service') }}" class="nav-link">Services</a>
           </li>
           <li class="nav-item me-4">
             <a href="{{ route('product') }}" class="nav-link">Products</a>
@@ -27,10 +27,10 @@
               {{ auth()->user()->username }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#"><i class="bi bi-layout-text-sidebar-reverse"></i> My Booking</a></li>
+              <li><a class="dropdown-item" href="{{ route('user.booking') }}"><i class="bi bi-layout-text-sidebar-reverse"></i> My Booking</a></li>
               <li><hr class="dropdown-divider"></li>
               <li>
-                <form action="/logout" method="POST">
+                <form action="{{ route('logout') }}" method="POST">
                   @csrf
                   <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
                 </form>
