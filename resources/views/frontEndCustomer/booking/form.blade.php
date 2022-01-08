@@ -52,7 +52,7 @@
                 <h4 class="my-3">When Booking</h4>
                 <div class="form-group mb-3">
                   <label>Date</label>
-                  <input type="date" class="form-control @error('date') is-invalid @enderror" value="{{ old('date') ?? '' }}" name="date" id="date" />
+                  <input type="text" placeholder="Years-month-day" id="datepicker" class="form-control @error('date') is-invalid @enderror" value="{{ old('date') ?? '' }}" name="date" id="date" />
                   <div>
                     @error('date')
                       {{ $message }}
@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group mb-3">
                   <label>Start Time</label>
-                  <input type="time" class="form-control @error('start_time') is-invalid @enderror"value="{{ old('start_time') ?? '' }}" name="start_time" id="time" />
+                  <input type="text" placeholder="Hours:minute" id="timepicker" class="form-control @error('start_time') is-invalid @enderror"value="{{ old('start_time') ?? '' }}" name="start_time" id="time" />
                   <div>
                     @error('start_time')
                       {{ $message }}
@@ -76,4 +76,31 @@
       </form>
     </div>
   </section>
+
+  <script>
+    // Datepicker
+    $(function () {
+      $("#datepicker").datepicker({
+        dateFormat: "yy-mm-dd",
+        minDate: 1,
+        maxDate: "+1M +5D",
+      });
+    });
+
+    // Timepicker
+    $(document).ready(function () {
+        $("#timepicker").timepicker({
+          timeFormat: "HH:mm",
+          interval: 15,
+          minTime: "08:30",
+          maxTime: "4:00pm",
+          defaultTime: "08:30",
+          startTime: "08:30",
+          dynamic: true,
+          dropdown: true,
+          scrollbar: true,
+        });
+      });
+
+  </script>
 @endsection

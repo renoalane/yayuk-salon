@@ -26,11 +26,11 @@
             <form class="d-flex">
                 <div class="px-2">
                     <label class="form-label">From</label>
-                    <input type="date" class="form-control me-2" name="s" value="{{ $request['s'] ?? '' }}" aria-label="date">
+                    <input type="text" placeholder="Years-month-day" id="fromDate" class="form-control me-2" name="s" value="{{ $request['s'] ?? '' }}" aria-label="date">
                 </div>
                 <div class="px-2">
                     <label class="form-label">To</label>
-                    <input type="date" class="form-control me-2" name="e" value="{{ $request['e'] ?? '' }}" aria-label="date">
+                    <input type="text" placeholder="Years-month-day" id="toDate" class="form-control me-2" name="e" value="{{ $request['e'] ?? '' }}" aria-label="date">
                 </div>
                 <div class="position-relative">
                     <button class="btn btn-primary position-absolute bottom-0" type="submit">GET</button>
@@ -39,9 +39,11 @@
         </div>
     </div>
     <div class="row g-3 my-2">
-        <a href="{{ route('dashboard.booking') }}">
-            <button class="btn btn-primary ms-2" type="submit">GET All</button>
-        </a>
+        <div class="col-4">
+            <a href="{{ route('dashboard.booking') }}">
+                <button class="btn btn-primary ms-2" type="submit">GET All</button>
+            </a>
+        </div>
     </div>
     {{-- End Date --}}
 
@@ -147,4 +149,39 @@
         </div>
     </div>    
 
+    <script>
+    // Datepicker From date to date 
+    $(function () {
+        var from = $("#fromDate")
+            .datepicker({
+              dateFormat: "yy-mm-dd",
+              changeMonth: true,
+            })
+            .on("change", function () {
+              to.datepicker("option", "minDate", getDate(this));
+            }),
+          to = $("#toDate")
+            .datepicker({
+              dateFormat: "yy-mm-dd",
+              changeMonth: true,
+            })
+            .on("change", function () {
+              from.datepicker("option", "maxDate", getDate(this));
+            });
+
+        function getDate(element) {
+          var date;
+          var dateFormat = "yy-mm-dd";
+          try {
+            date = $.datepicker.parseDate(dateFormat, element.value);
+          } catch (error) {
+            date = null;
+          }
+
+          return date;
+        }
+    });
+    // End Datepicker
+
+    </script>
 @endsection
