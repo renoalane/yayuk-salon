@@ -55,7 +55,7 @@ class UserBookingController extends Controller
         // Validate input
         $validateData = $request->validate([
             'date' => 'required|date',
-            'start_time' => 'required'
+            'start_time' => 'required|date_format:H:i'
         ]);
 
         // Check Request Service
