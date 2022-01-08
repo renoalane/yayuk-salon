@@ -18,6 +18,11 @@
     {{-- Jquery --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     {{-- End Jquery --}}
+
+    {{-- Datepicker --}}
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    {{-- End Datepicker --}}
     <style>
         trix-toolbar [data-trix-button-group="file-tools"]{
             display: none;
@@ -66,7 +71,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
     {{-- Handle Toggle --}}
     <script>
-
         // For Show Toogle
         var el = document.getElementById("wrapper");
         var toggleButton = document.getElementById("menu-toggle");

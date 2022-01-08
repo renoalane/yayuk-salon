@@ -11,6 +11,20 @@
     <link rel="stylesheet" href="{{ asset('css/frontend.css') }}" />
     <link rel="shortcut icon" href="{{asset('assets/img/logoYayukSalon.png')}}" type="image/x-icon" />
 
+    {{-- Jquery --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{-- End Jquery --}}
+
+    {{-- Datepicker --}}
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    {{-- End Datepicker --}}
+    
+    {{-- Timepicker --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    {{-- End Timepicker --}}
+
     <title>Yayuk Salon | {{ $title }}</title>
     </head>
     <body>
