@@ -5,7 +5,7 @@
 /* end Logo */
 
 /* Navbar */
-nav {
+nav.nav-yayuk-salon {
     background-color: #915898;
 }
 nav .nav-link {
@@ -126,6 +126,12 @@ nav .nav-link:hover {
 .booking-user {
     min-height: 100vh;
 }
+.service-checkbox {
+    cursor: pointer;
+}
+.list-service {
+    cursor: pointer;
+}
 
 /* End User Booking */
 
@@ -237,6 +243,37 @@ footer {
     width: 15rem;
     height: 19rem;
 }
+
+/* Category */
+.category-text {
+    background-color: #915898;
+    color: white;
+}
+
+div.scrollmenu {
+    background-color: #915898;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+div.scrollmenu a {
+    display: inline-block;
+    color: #e3d6e0;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+div.scrollmenu a.active {
+    background-color: #e3d6e0;
+    color: #777;
+}
+
+div.scrollmenu a:hover {
+    background-color: #e3d6e0;
+    color: #777;
+}
+/* End Side Category */
 
 .card:hover {
     box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
