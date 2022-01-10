@@ -78,7 +78,7 @@
             </div>
           </div>
           <div class="d-flex justify-content-center">
-            <a href="#" class="btn m-4 btn-md btn-bg-ys">Other Services ></a>
+            <a href="{{ route('user.service') }}" class="btn m-4 btn-md btn-bg-ys">Other Services ></a>
           </div>
         </div>
       </section>
@@ -108,24 +108,27 @@
       <section class="pb-5 product">
         <div class="container">
           <h2 class="text-center mb-4">Product</h2>
-          <!-- <div class="row justify-content-center align-items-center">
-            <h1 class="text-center">Soon</h1>
-          </div> -->
           <div class="row g-2 p-0 m-5 justify-content-center">
-            <div class="col-lg-3 col-md-3 p-0 contain-card">
-              <div class="card card-index mx-auto">
-                <div class="img-card">
-                  <img src="winter.jpg" class="card-img-top" alt="" />
+          @forelse ($products as $product)
+              <div class="col-lg-3 col-md-3 p-0 contain-card">
+                <div class="card card-index mx-auto">
+                  <div class="img-card">
+                    <img src="{{ asset('storage/'. $product->image) }}" class="card-img-top" alt="product image" />
+                  </div>
+                  <div class="card-body">
+                    <a href="#" class="opacity-50 category-name">{{ $product->category->name }}</a>
+                    <h5 class="card-title">{{ $product->name }}</h5>
+                  </div>
                 </div>
-                <div class="card-body">
-                  <a href="#" class="opacity-50 category-name">Category name</a>
-                  <h5 class="card-title">Product Name</h5>
-                </div>
-              </div>
-            </div>
+              </div>  
+            @empty
+              <div class="row justify-content-center align-items-center mt-2 mb-3">
+                <h3 class="text-center">Sorry, the product is still out of stock</h3>
+              </div>    
+          @endforelse
           </div>
           <div class="d-flex justify-content-center">
-            <a href="#" class="btn m-4 btn-md btn-bg-ys">Other Product ></a>
+            <a href="{{ route('user.product') }}" class="btn m-4 btn-md btn-bg-ys">Other Product ></a>
           </div>
         </div>
       </section>

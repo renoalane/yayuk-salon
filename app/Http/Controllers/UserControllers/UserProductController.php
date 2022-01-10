@@ -3,12 +3,41 @@
 namespace App\Http\Controllers\UserControllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ShowProductController extends Controller
+class UserProductController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, Product $products)
     {
-        return view('frontEndCustomer.products.list');
+
+        $q = $request->input('q');
+
+        $products = $products->when($q, function ($query) use ($q) {
+            return $query->where('name', 'like', '%' . $q . '%');
+        })->paginate(8);
+
+        $categories = Category::where('status', 1)->get();
+
+        if ($request->category) {
+            $products = Product::where('category_id', $request->category)->paginate(8);
+        }
+
+        $request = $request->all();
+
+        return view('frontEndCustomer.product.list', [
+            'products' => $products,
+            'categories' => $categories,
+            'request' => $request,
+            'title' => 'Products'
+        ]);
+    }
+    public function show(Product $product)
+    {
+        return view('frontEndCustomer.product.detail', [
+            'title' => 'Product',
+            'product' => $product
+        ]);
     }
 }

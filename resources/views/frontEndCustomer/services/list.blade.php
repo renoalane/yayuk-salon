@@ -53,7 +53,7 @@
                 </li>
                 @empty
                     <div class="row justify-content-center align-items-center">
-                        <h1 class="text-center">Soon</h1>
+                        <h1 class="text-center">Sorry, the service hasn't been added yet</h1>
                     </div>
                 @endforelse
             </ul>

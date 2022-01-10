@@ -1,5 +1,5 @@
 <!-- Navbar -->
- <nav class="navbar navbar-expand-lg navbar-dark py-1 fixed-top">
+ <nav class="navbar navbar-expand-lg navbar-dark py-1 fixed-top nav-yayuk-salon">
     <div class="container">
       <a href="#" class="navbar-brand"><img class="logo" src="{{ asset('assets/img/logoYayukSalon.png') }}" alt="logo" /> Yayuk Salon</a>
 
@@ -17,7 +17,7 @@
             <a href="{{ route('user.service') }}" class="nav-link">Services</a>
           </li>
           <li class="nav-item me-4">
-            <a href="{{ route('product') }}" class="nav-link">Products</a>
+            <a href="{{ route('user.product') }}" class="nav-link">Products</a>
           </li>
           {{-- Cek User --}}
           @auth
