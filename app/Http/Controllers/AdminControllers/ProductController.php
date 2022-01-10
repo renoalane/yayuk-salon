@@ -31,7 +31,7 @@ class ProductController extends Controller
             'title' => 'product',
             'active' => 'products',
             'request' => $request,
-            'categories' => Category::count()
+            'categories' => Category::all()->where('status', 1)->count()
         ]);
     }
 
