@@ -8,6 +8,7 @@ use App\Models\DetailBooking;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Contracts\Support\ValidatedData;
 
 class UserBookingController extends Controller
@@ -105,14 +106,24 @@ class UserBookingController extends Controller
         }
 
         $end_time = implode(':', $time);
+        $end_time = date('H:i:s', strtotime($end_time));
+        $end_time = Carbon::create($end_time);
+        $start_time = date('H:i:s', strtotime($request->start_time));
+        $start_time = Carbon::create($start_time);
+
 
         // Validate Time and Date if avaible book
         foreach ($oldBooking as $old) {
-            if ($old->date = $request->date) {
-                if ($request->start_time >= $old->start_time || $end_time <= $old->end_time) {
-                    return redirect()
-                        ->route('user.booking.create')
-                        ->with('failed', 'Sorry, For the time and date someone already booked');
+            if ($old->date === $request->date) {
+                $theDate = Booking::where('date', $request->date)->get();
+                foreach ($theDate as $date) {
+                    $dt_start = Carbon::create($date->start_time)->toTimeString();
+                    $dt_end = Carbon::create($date->end_time)->toTimeString();
+                    if ($start_time->between($dt_start, $dt_end) || $end_time->between($dt_start, $dt_end)) {
+                        return redirect()
+                            ->route('user.booking.create')
+                            ->with('failed', 'Sorry, For the time and date someone already booked');
+                    }
                 }
             }
         }

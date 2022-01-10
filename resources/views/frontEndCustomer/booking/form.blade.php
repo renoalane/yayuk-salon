@@ -20,8 +20,8 @@
                 <div class="list-services">
                   <ul class="list-group">
                       @forelse ($services as $service)
-                      <li class="list-group-item d-flex p-4">
-                        <input type="checkbox" name="service[]" value="{{ $service->id }}" id="service" style="width: 5rem; height: 2rem; margin-top: 3px" />
+                      <li class="list-group-item d-flex p-4 list-service">
+                        <input type="checkbox" name="service[]" class="service-checkbox" value="{{ $service->id }}" id="service" style="width: 5rem; height: 2rem; margin-top: 3px" />
                         <div class="service-information ms-2">
                           <div class="top-information row">
                             <div class="service-name col-8">
@@ -49,7 +49,7 @@
               </div>
               <!-- Date -->
               <div class="col-lg-5 mt-6">
-                <h4 class="my-3">When Booking</h4>
+                <h4 class="my-3">Booking at</h4>
                 <div class="form-group mb-3">
                   <label>Date</label>
                   <input type="text" placeholder="Years-month-day" id="datepicker" class="form-control @error('date') is-invalid @enderror" value="{{ old('date') ?? '' }}" name="date" id="date" />
@@ -87,6 +87,33 @@
       });
     });
 
+    const checkboxAll = document.querySelectorAll('.service-checkbox');
+    const listAll = document.querySelectorAll('.list-service');
+
+    // For Checkbox div
+    listAll.forEach((element,i) => {
+      element.addEventListener('click', () => {
+        if(checkboxAll[i].checked){
+          checkboxAll[i].checked = false
+        }
+        else{
+          checkboxAll[i].checked = true
+        }
+      })
+    });
+    // For checkbox
+    checkboxAll.forEach((element,i) => {
+      element.addEventListener('click', () => {
+        if(checkboxAll[i].checked){
+          checkboxAll[i].checked = false
+        }
+        else{
+          checkboxAll[i].checked = true
+        }
+      })
+    });
+    
+
     // Timepicker
     $(document).ready(function () {
         $("#timepicker").timepicker({
@@ -96,7 +123,7 @@
           maxTime: "4:00pm",
           defaultTime: "08:30",
           startTime: "08:30",
-          dynamic: true,
+          dynamic: false,
           dropdown: true,
           scrollbar: true,
         });
