@@ -55,7 +55,7 @@ class UserBookingController extends Controller
 
         // Validate input
         $validateData = $request->validate([
-            'date' => 'required|date',
+            'date' => 'required|after_or_equal:now|date|date_format:Y-m-d',
             'start_time' => 'required|date_format:H:i'
         ]);
 
@@ -128,6 +128,13 @@ class UserBookingController extends Controller
             }
         }
 
+        // Validate Time if greater then 5pm
+        if ($end_time > date('H:i:s', strtotime('17:00:00'))) {
+            return redirect()
+                ->route('user.booking.create')
+                ->with('failed', 'Sorry, duration exceeds working hours');
+        }
+
         // User Login
         $validateData['user_id'] = auth()->user()->id;
         $validateData['user_name'] = auth()->user()->name;
@@ -162,7 +169,7 @@ class UserBookingController extends Controller
 
         return redirect()
             ->route('user.booking')
-            ->with('success', 'Thank you for ordering, please wait for confirmation from admin');
+            ->with('success', 'Thank you for ordering, please wait for whatsapp confirmation from admin');
     }
 
     /**

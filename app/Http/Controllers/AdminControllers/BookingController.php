@@ -68,11 +68,6 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        // return view('dashboard.booking.detail', [
-        //     'title' => 'booking',
-        //     'active' => 'bookings',
-        //     'booking' => $booking
-        // ]);
     }
 
     /**

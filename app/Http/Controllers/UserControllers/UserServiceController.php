@@ -12,9 +12,10 @@ class UserServiceController extends Controller
     {
         $q = $request->input('q');
 
-        $services = $services->when($q, function ($query) use ($q) {
-            return $query->where('name', 'like', '%' . $q . '%');
-        })->paginate(5);
+        $services = $services->where('status', 1)
+            ->when($q, function ($query) use ($q) {
+                return $query->where('name', 'like', '%' . $q . '%')->where('status', '=', 1);
+            })->paginate(5);
 
         // Menumpuk searching dan pagiation
         $request = $request->all();
