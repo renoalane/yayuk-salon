@@ -39,15 +39,16 @@
                         </div>
                     @enderror
                 </div>
-                <div class="form-floating">
-                    <input type="phone" name="phone" class="form-control @error('phone') is-invalid @enderror" id="phone" placeholder="name@example.com" required value="{{ old('phone') }}">
-                    <label for="phone">Phone</label>
+                <label for="phone">No Whatsapp</label>
+                <div class="mb-3 input-group">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">+62</span>
+                    <input type="phone" id="phone" name="phone" class="form-control @error('phone') is-invalid @enderror" id="phone" required value="{{ old('phone') }}" placeholder="8253XXXXXX">
                     @error('phone')
                         <div class="invalid-feedback">
                             {{-- message error --}}
                             {{ $message }}
                         </div>
-                    @enderror
+                    @enderror 
                 </div>
                 <div class="form-floating">
                     <input type="password" name="password" class="form-control rounded-bottom @error('password') is-invalid @enderror" id="password" placeholder="Password" required>
