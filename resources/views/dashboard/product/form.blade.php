@@ -59,14 +59,14 @@
                             </div>
                             <div class="form-group mb-2">
                                 <label for="stok">Stok</label>
-                                <input name="stok" type="number" class="form-control @error('stok') is-invalid @enderror" value="{{ old('stok') ?? $product->stok ?? '' }}">
+                                <input name="stok" type="number" class="form-control @error('stok') is-invalid @enderror" value="{{ old('stok') ?? $product->stok ?? '' }}" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3">
                                 @error('stok')
                                     {{ $message }}
                                 @enderror
                             </div>
                             <div class="form-group mb-2">
                                 <label for="price">Price</label>
-                                <input name="price" type="number" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') ?? $product->price ?? '' }}">
+                                <input name="price" type="number" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') ?? $product->price ?? '' }}" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="9">
                                 @error('price')
                                     {{ $message }}
                                 @enderror
