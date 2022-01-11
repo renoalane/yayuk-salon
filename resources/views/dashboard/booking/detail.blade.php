@@ -37,7 +37,7 @@
                                     <li class="list-group-item border-bottom-0">
                                         <div class="ms-2 me-auto">
                                             <div class="fw-bold">Phone</div>
-                                            {{$booking->user->phone}}
+                                            +62 {{$booking->user->phone}}
                                         </div>
                                     </li>
                                     <li class="list-group-item border-bottom-0">
@@ -87,6 +87,7 @@
                                         </div>
                                     </li>
                                 </ol>
+                                <a href="https://api.whatsapp.com/send?phone=62{{$booking->user->phone}}&text=*Yayuk%20Salon*%0ABooking%20Confirmation%0A%0ACode%20Booking%20%3A%0A*{{ $booking->code_booking }}*%0A%0ANama%20Customer%20%3A%0A*{{ $booking->user->name }}*%0A%0AWaktu%20Booking%20%3A%0A*{{date('d F Y', strtotime($booking->date))}}%2C%20{{ date('H:i',strtotime($booking->start_time)) }}%20wib%20-%20{{date('H:i',strtotime($booking->end_time))}}%20wib*%0A%0ATotal%20%3A%0A*Rp.%20{{ $booking->total_price }}*%0A%0AKeterangan%20%3A%0ATelah%20dikonfirmasi%20oleh%20admin%2C%20Harap%20datang%2010%20menit%20sebelum%20waktu%20booking.%0ATagihan%20booking%20bisa%20di%20akses%20di%20link%20%3A%0Ayayuksalon.com%2Fbooking%2F{{ $booking->code_booking }}%0A%0A*NB*%20%3A%20Jika%20adanya%20pembatalan%2C%20mohon%20chat%20terhadap%20admin%206%20jam%20sebelum%20waktu%20booking.%0A%0A*Yayuk%20Salon*%0AJl%20Raya%20Puhpelem%2C%20Randukuning%2C%20Puhpelem%2C%20Kabupaten%20Wonogiri%2C%20Jawa%20Tengah%2057698%0A%0ATerima%20Kasih" class="btn btn-primary" target="_blank">Whatsapp Confirmation</a>
                             </div>
                         </div>
 
