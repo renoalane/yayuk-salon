@@ -14,14 +14,15 @@ class UserProductController extends Controller
 
         $q = $request->input('q');
 
-        $products = $products->when($q, function ($query) use ($q) {
-            return $query->where('name', 'like', '%' . $q . '%');
-        })->paginate(8);
+        $products = $products->where('status', 1)
+            ->when($q, function ($query) use ($q) {
+                return $query->where('name', 'like', '%' . $q . '%');
+            })->paginate(8);
 
         $categories = Category::where('status', 1)->get();
 
         if ($request->category) {
-            $products = Product::where('category_id', $request->category)->paginate(8);
+            $products = Product::where('category_id', $request->category)->where('status', 1)->paginate(8);
         }
 
         $request = $request->all();

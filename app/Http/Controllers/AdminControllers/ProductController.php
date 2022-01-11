@@ -65,7 +65,7 @@ class ProductController extends Controller
             'description' => 'required',
             'image' => 'required|image|file|max:2048',
             'stok' => 'required',
-            'price' => 'required',
+            'price' => 'required|regex:^[1-9][0-9]+^|not_in:0',
             'status' => 'required'
         ]);
 
@@ -125,7 +125,7 @@ class ProductController extends Controller
             'description' => 'required',
             'image' => 'image|file|max:2048',
             'stok' => 'required|numeric|gt:0',
-            'price' => 'required|regex:^[1-9][0-9]+|not_in:0',
+            'price' => 'required|regex:^[1-9][0-9]+^|not_in:0',
             'status' => 'required'
         ]);
 
