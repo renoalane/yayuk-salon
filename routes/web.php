@@ -10,10 +10,11 @@ use App\Http\Controllers\AdminControllers\ServiceController;
 use App\Http\Controllers\AuthControllers\RegisterController;
 use App\Http\Controllers\AdminControllers\CategoryController;
 use App\Http\Controllers\AdminControllers\DashboardController;
+use App\Http\Controllers\UserControllers\UserAccountController;
 use App\Http\Controllers\UserControllers\UserBookingController;
-use App\Http\Controllers\UserControllers\UserHomepageController;
 use App\Http\Controllers\UserControllers\UserProductController;
 use App\Http\Controllers\UserControllers\UserServiceController;
+use App\Http\Controllers\UserControllers\UserHomepageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,13 @@ Route::get('/products/{product}', [UserProductController::class, 'show'])->name(
 
 // Booking User
 Route::middleware('auth')->group(function () {
+
+    // 
+    Route::get('/user', [UserAccountController::class, 'index'])->name('user.account');
+    Route::get('/user/{user:username}/edit', [UserAccountController::class, 'edit'])->name('user.account.edit');
+    Route::put('/user/{user:username}', [UserAccountController::class, 'update'])->name('user.account.update');
+
+    // Booking
     Route::get('/booking/', [UserBookingController::class, 'index'])->name('user.booking');
     Route::get('/booking/create/', [UserBookingController::class, 'create'])->name('user.booking.create');
     Route::post('/booking/', [UserBookingController::class, 'store'])->name('user.booking.store');

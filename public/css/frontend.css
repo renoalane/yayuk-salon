@@ -124,7 +124,7 @@ nav .nav-link:hover {
 
 /* User Booking */
 .booking-user {
-    min-height: 100vh;
+    min-height: 75vh;
 }
 .service-checkbox {
     cursor: pointer;
@@ -168,9 +168,13 @@ nav .nav-link:hover {
     color: grey;
 }
 
-/* Date */
+/* Account */
 
-/* End Date */
+.account {
+    min-height: 85vh;
+}
+
+/* End Account */
 
 /* Nota */
 

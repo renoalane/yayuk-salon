@@ -29,6 +29,8 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{{ route('user.booking') }}"><i class="bi bi-layout-text-sidebar-reverse"></i> My Booking</a></li>
               <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{{ route('user.account.edit', auth()->user()->username) }}"><i class="bi bi-person"></i> My Account</a></li>
+              <li><hr class="dropdown-divider"></li>
               <li>
                 <form action="{{ route('logout') }}" method="POST">
                   @csrf
