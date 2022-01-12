@@ -10,6 +10,9 @@
         <div class="row justify-content-center">
         <div class="col-md-6">
             <form class="d-flex">
+            @if (request('category'))
+                <input type="hidden" name="category" value="{{ request('category') }}">
+            @endif
             <input class="form-control me-2" type="search" name="q" value="{{ $request['q'] ?? '' }}" placeholder="Search service" aria-label="Search" />
             <button class="btn btn-bg-ys btn-sm"type="submit">
                 Search

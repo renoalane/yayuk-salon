@@ -92,13 +92,16 @@ class UserController extends Controller
     {
         $rules = [
             'name' => 'required|max:255',
-            'phone' => 'required',
             'is_admin' => 'required',
             'status' => 'required'
         ];
 
         if ($request->username != $user->username) {
             $rules['username'] = 'required|min:3|max:10|unique:users';
+        }
+
+        if ($request->phone != $user->phone) {
+            $rules['phone'] = 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9|unique:users';
         }
 
         if ($request->email != $user->email) {

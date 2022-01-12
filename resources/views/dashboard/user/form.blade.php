@@ -54,7 +54,7 @@
                                 <div class="input-group mb-2">
                                     <span class="input-group-text" id="inputGroup-sizing-lg">+62</span>
                                     <input name="phone" type="text" class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone') ?? $user->phone}}">
-                                    @error('email')
+                                    @error('phone')
                                         {{ $message }}
                                     @enderror
                                 </div>
