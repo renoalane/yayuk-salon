@@ -12,10 +12,10 @@
             <i class="fas fa-list me-2"></i>Categories
         </a>
         <a href="{{ route('dashboard.product') }}" class="list-group-item list-group-item-action bg-transparent second-text {{ $active == 'products' ? 'active' : 'fw-bold'  }}">
-            <i class="fas fa-gift me-2"></i>Products
+            <i class="fas fa-boxes me-2"></i>Products
         </a>
         <a href="{{ route('dashboard.service') }}" class="list-group-item list-group-item-action bg-transparent second-text {{ $active == 'services' ? 'active' : 'fw-bold'  }}">
-            <i class="fas fa-chart-line me-2"></i>Services
+            <i class="fas fa-cut me-2"></i>Services
         </a>
         <a href="{{ route('dashboard.user') }}" class="list-group-item list-group-item-action bg-transparent second-text {{ $active == 'users' ? 'active' : 'fw-bold' }}">
             <i class="fas fa-users me-2"></i>Users
