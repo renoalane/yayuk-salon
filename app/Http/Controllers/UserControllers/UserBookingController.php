@@ -129,7 +129,7 @@ class UserBookingController extends Controller
         }
 
         // Validate Time if greater then 5pm
-        if ($end_time > date('H:i:s', strtotime('17:00:00'))) {
+        if ($end_time > Carbon::create('17:00:00')) {
             return redirect()
                 ->route('user.booking.create')
                 ->with('failed', 'Sorry, duration exceeds working hours');
