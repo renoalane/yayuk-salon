@@ -25,7 +25,6 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->tinyInteger('stok');
             $table->boolean('status');
-            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }
