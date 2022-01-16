@@ -23,7 +23,7 @@ class UserAccountController extends Controller
         ];
 
         if ($request->phone != $user->phone) {
-            $rules['phone'] = 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9|unique:users';
+            $rules['phone'] = 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9|max:12|unique:users';
         }
 
         if ($request->email != $user->email) {
