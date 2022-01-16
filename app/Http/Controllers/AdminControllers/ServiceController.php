@@ -64,6 +64,8 @@ class ServiceController extends Controller
             'status' => 'required',
         ]);
 
+        $validateData['user_id'] = auth()->user()->id;
+
         Service::create($validateData);
 
         return redirect()

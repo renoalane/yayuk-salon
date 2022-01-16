@@ -74,7 +74,9 @@ class ProductController extends Controller
             $validateData['image'] = $request->file('image')->store('products-image');
         };
 
+        $validateData['user_id'] = auth()->user()->id;
         Product::create($validateData);
+
 
         return redirect()
             ->route('dashboard.product')

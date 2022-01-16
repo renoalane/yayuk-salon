@@ -60,6 +60,7 @@ class CategoryController extends Controller
             'status' => 'required',
         ]);
 
+        $validateData['user_id'] = auth()->user()->id;
         Category::create($validateData);
 
         return redirect()
