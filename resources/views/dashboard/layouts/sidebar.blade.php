@@ -20,11 +20,5 @@
         <a href="{{ route('dashboard.user') }}" class="list-group-item list-group-item-action bg-transparent second-text {{ $active == 'users' ? 'active' : 'fw-bold' }}">
             <i class="fas fa-users me-2"></i>Users
         </a>
-        <a class="list-group-item list-group-item-action bg-transparent">
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                        <button type="submit" class="border-0 bg-transparent w-100 p-0 text-start text-danger  fw-bold"><i class="fas fa-power-off me-2"></i>Logout</button>
-                </form>
-            </a>
     </div>
 </div>
