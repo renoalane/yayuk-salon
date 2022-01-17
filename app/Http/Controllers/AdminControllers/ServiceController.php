@@ -58,14 +58,15 @@ class ServiceController extends Controller
     {
         $validateData = $request->validate([
             'name' => 'required|max:255|unique:services',
-            'description' => 'required|max:500',
+            'description' => 'max:500',
             'price' => 'required|regex:^[1-9][0-9]+^|not_in:0',
             'duration' => 'required',
             'status' => 'required',
         ]);
 
-        $validateData['user_id'] = auth()->user()->id;
 
+        // Note belum bisa
+        $validateData['user_id'] = auth()->user()->id;
         Service::create($validateData);
 
         return redirect()
@@ -111,7 +112,7 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         $rules = [
-            'description' => 'required',
+            'description' => 'max:500',
             'price' => 'required|regex:^[1-9][0-9]+^|not_in:0',
             'duration' => 'required',
             'status' => 'required',

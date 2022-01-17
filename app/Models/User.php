@@ -47,4 +47,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Booking::class);
     }
+
+    public function categoy()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function service()
+    {
+        return $this->hasMany(Service::class);
+    }
 }
