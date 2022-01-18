@@ -18,7 +18,7 @@ class CreateDetailBookingsTable extends Migration
             $table->unsignedBigInteger('booking_id');
             $table->foreign('booking_id')->references('id')->on('bookings')->onDelete('cascade');
             $table->unsignedBigInteger('service_id');
-            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('null || set null')->onUpdate('nul || set null');
             $table->string('service_name');
             $table->integer('service_duration');
             $table->integer('service_price');

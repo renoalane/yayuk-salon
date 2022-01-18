@@ -65,7 +65,7 @@ class ServiceController extends Controller
         ]);
 
 
-        // Note belum bisa
+        // User id
         $validateData['user_id'] = auth()->user()->id;
         Service::create($validateData);
 
