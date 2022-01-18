@@ -110,8 +110,17 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Booking $booking)
     {
-        //
+        if ($booking->status === 0 || $booking->status === 1) {
+            return redirect()
+                ->route('dashboard.booking')
+                ->with('failed', 'Booking status is new or confirmed');
+        } else {
+            $booking->delete();
+        }
+        return redirect()
+            ->route('dashboard.booking')
+            ->with('success', 'Booking has been deleted');
     }
 }

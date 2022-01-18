@@ -72,12 +72,9 @@ Route::middleware('admin')->group(function () {
 
     // Bookings
     Route::get('dashboard/bookings/', [BookingController::class, 'index'])->name('dashboard.booking');
-    Route::get('dashboard/booking/create/', [BookingController::class, 'create'])->name('dashboard.booking.create');
-    Route::post('dashboard/bookings/', [BookingController::class, 'store'])->name('dashboard.booking.store');
-    Route::get('dashboard/booking/{booking:code_booking}', [BookingController::class, 'show'])->name('dashboard.booking.show');
     Route::get('dashboard/booking/{booking:code_booking}/edit', [BookingController::class, 'edit'])->name('dashboard.booking.edit');
     Route::put('dashboard/booking/{booking:code_booking}', [BookingController::class, 'update'])->name('dashboard.booking.update');
-    Route::delete('dashboard/booking/{booking}', [BookingController::class, 'destroy'])->name('dashboard.booking.destroy');
+    Route::delete('dashboard/bookings/{booking:code_booking}', [BookingController::class, 'destroy'])->name('dashboard.booking.destroy');
 
 
     // Category
