@@ -89,7 +89,7 @@
                                 <a href="{{ route('dashboard.service.edit', $service->id) }}" class="btn btn-sm btn-warning"><i class="far fa-edit"> Edit</i></a>
                         
                                 {{-- button delete --}}
-                                <button class="btn btn-sm btn-danger btnDelete" data-id="{{ $service->id }}" data-bs-toggle='modal' data-bs-target='#deleteModal'><i class="far fa-trash-alt"> Hapus</i></button>
+                                <button class="btn btn-sm btn-danger btnDelete" data-id="{{ $service->id }}" data-bs-toggle='modal' data-bs-target='#deleteModal'><i class="far fa-trash-alt"> Delete</i></button>
                             </td>
                         </tr>
                     @empty
