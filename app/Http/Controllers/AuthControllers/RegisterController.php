@@ -24,6 +24,7 @@ class RegisterController extends Controller
             'email' => 'required|email:dns|unique:users',
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9|max:12|unique:users',
             'password' => 'required|confirmed|min:5|max:255',
+            'password_confirmation' => 'required|same:password|min:5'
         ]);
 
         // Hash Password
