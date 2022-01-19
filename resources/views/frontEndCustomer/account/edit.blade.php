@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group mb-2">
                             <label for="username" class="mb-2">Username</label>
-                            <input type="text" class="form-control" value="{{ $user->username}}" disabled>
+                            <input type="text" class="form-control" value="{{ $user->username }}" disabled>
                         </div>
                         <div class="form-group mb-2">
                             <label for="email" class="mb-2">Email</label>
@@ -59,16 +59,10 @@
                                 {{ $message }}
                             @enderror
                         </div>
-                        {{-- <div class="form-group mb-2">
-                            <label for="password" class="mb-2">Password</label>
-                            <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" value="{{ old('password') ?? $user->password}}">
-                            @error('password')
-                                {{ $message }}
-                            @enderror
-                        </div> --}}
                         <div class="form-group mb-0">
                             <a href="{{ route('home') }}"><button type="button" class="btn btn-sm btn-secondary">Cancel</button></a>
                             <button type="submit" class="btn btn-success btn-sm">Update</button>
+                            <a class="float-end" href="{{ route('user.password.edit', $user->username) }}">Change Password</a>
                         </div>
                     </form>
                 </div>

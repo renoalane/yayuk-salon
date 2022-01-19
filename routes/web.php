@@ -41,10 +41,14 @@ Route::get('/products/{product}', [UserProductController::class, 'show'])->name(
 // Booking User
 Route::middleware('auth')->group(function () {
 
-    // 
+    // User Edit
     Route::get('/user', [UserAccountController::class, 'index'])->name('user.account');
     Route::get('/user/{user:username}/edit', [UserAccountController::class, 'edit'])->name('user.account.edit');
     Route::put('/user/{user:username}', [UserAccountController::class, 'update'])->name('user.account.update');
+
+    // User change password
+    Route::get('/change-password/{user:username}/edit', [UserAccountController::class, 'showChangePassword'])->name('user.password.edit');
+    Route::put('/change-password/{user:username}', [UserAccountController::class, 'changePassword'])->name('user.password.update');
 
     // Booking
     Route::get('/booking/', [UserBookingController::class, 'index'])->name('user.booking');
