@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -93,7 +94,7 @@ class UserController extends Controller
         $rules = [
             'name' => 'required|max:255',
             'is_admin' => 'required',
-            'status' => 'required'
+            'status' => 'required',
         ];
 
         if ($request->username != $user->username) {
@@ -108,7 +109,15 @@ class UserController extends Controller
             $rules['email'] = 'required|email:dns|unique:users';
         }
 
-        $validateData = $request->validate($rules);
+        // Cek Password and Hash
+        if ($request->password) {
+            $rules['password'] = 'min:5|confirmed';
+            $validateData = $request->validate($rules);
+            $validateData['password'] = Hash::make($validateData['password']);
+        } else {
+            $validateData = $request->validate($rules);
+        }
+
 
         User::where('id', $user->id)
             ->update($validateData);

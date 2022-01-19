@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="mb-2">
-                                <div class="form-group mb-3">
+                                <div class="form-group mb-2">
                                     <label for="is_admin" class="mb-2">Level</label>
                                 
                                     <select name="is_admin" id="is_admin" class="form-select">
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                             <div class="mb-2">
-                                <div class="form-group mb-3">
+                                <div class="form-group mb-2">
                                     <label for="status" class="mb-2">Status</label>
                                 
                                     <select name="status" id="status" class="form-select">
@@ -86,6 +86,20 @@
                                         @endif>Off</option>
                                     </select>                                    
                                 </div>
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="password" class="mb-2">New Password</label>
+                                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="If user forget the password">
+                                @error('password')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="password" class="mb-2">New Password Confirmation</label>
+                                <input name="password_confirmation" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="New password confirmation">
+                                @error('password')
+                                    {{ $message }}
+                                @enderror
                             </div>
                             <div class="form-group mb-0">
                                 <a href="{{ route('dashboard.user') }}"><button type="button" class="btn btn-sm btn-secondary">Cancel</button></a>
