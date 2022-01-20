@@ -19,18 +19,19 @@
     {{-- End Navbar --}}
 
     <!-- ShowCase -->
-    <section class="text-light bg-start pt-lg-5 mt-lg-5 text-center text-sm-start showcase">
+    <section class="text-light bg-start pt-sm-5 mt-sm-5 text-center text-sm-start showcase">
         <div class="container">
           <div class="d-sm-flex align-items-center justify-content-evenly">
-            <div class="py-5 mt-5">
-              <h1 class="first">Welcome to <span class="span-logo">Yayuk Salon</span></h1>
-              <img class="img-fluid mx-auto my-3 responsive-img-phone" src="{{ asset('assets/img/kissping.png') }}" />
-              <div class="d-sm-block">
-                <a href="{{ route('user.booking.create') }}" class="btn btn-primary btn-md m-2">Booking</a>
-                <a href="#location"><button class="btn btn-primary btn-md">Location</button></a>
+            <div class="py-5 mt-5 responsive-div">
+              <h1 class="first yayuksalon">Yayuk Salon</h1>
+              <h1 class="first"><span class="span-logo">Beauty Salon</span></h1>
+              <p class="fs-6 first">Hadir untuk memberikan pelayanan terbaik untuk para wanita indonesia yang memiliki masalah dalam merawat rambut dan kulit wajah</p>
+              <div class="d-sm-block ms-0 my-3">
+                <a href="{{ route('user.booking.create') }}" class="btn btn-outline-light btn-lg me-2">Booking</a>
+                <a href="#location" class="btn btn-outline-light btn-lg">Location</a>
               </div>
             </div>
-            <img class="img-fluid d-none d-sm-block responsive-img pt-sm-5" src="{{ asset('assets/img/kissping.png') }}" alt="" />
+            <img class="img-fluid d-sm-block responsive-img pt-sm-5" src="{{ asset('assets/img/kissping.png') }}" alt="" />
           </div>
         </div>
       </section>
@@ -40,8 +41,8 @@
       <section id="description" class="p-5">
         <div class="container">
           <div class="description p-lg-5 p-sm-0">
-            <h2>Yayuk Salon</h2>
-            <p class="fs-6">Prioritizing comfort and privacy for women who want to do beauty treatments, is the main priority of Yayuk Salon. Does not accept male customers and is expected to provide maximum comfort.</p>
+            <h2 class="text-center">Yayuk Salon</h2>
+            <p class="fs-5 text-center">Mengutamakan kenyamanan dan privasi bagi wanita yang ingin melakukan perawatan kecantikan, menjadi prioritas utama Yayuk Salon. Tidak menerima pelanggan pria dan diharapkan memberikan kenyamanan maksimal.</p>
           </div>
           <div class="row g-2 pb-lg-5 px-lg-5 p-sm-0">
             <div class="col-md-6 col-lg-4"><img class="img-fluid rounded" src="{{ asset('assets/img/profil1.jpg') }}" alt="" /></div>
@@ -55,8 +56,8 @@
       <!-- Show Main Service -->
       <section class="show-main-service p-5">
         <div class="containter">
-          <h2 class="text-center mb-4 service-description">Enjoy Our Best Service</h2>
-          <p class="pb-4 fs-6 pt-2 service-description">Yayuk Salon serves hair and facial beauty treatments for Indonesian women with quality ingredients that are safe for health.</p>
+          <h2 class="text-center mb-4 fs-4 service-description">Enjoy Our Best Service</h2>
+          <p class="pb-4 pt-2 service-description">Yayuk Salon melayani perawatan kecantikan rambut dan wajah untuk wanita Indonesia dengan bahan-bahan berkualitas yang aman untuk kesehatan.</p>
           <div class="d-md-flex justify-content-evenly align-items-center text-center">
             <div class="icon-section">
               <div class="icon rounded-circle">
@@ -78,7 +79,7 @@
             </div>
           </div>
           <div class="d-flex justify-content-center">
-            <a href="{{ route('user.service') }}" class="btn m-4 btn-md btn-bg-ys">Other Services ></a>
+            <a href="{{ route('user.service') }}" class="btn m-4 btn-md btn-outline-light">Other Services ></a>
           </div>
         </div>
       </section>
@@ -95,7 +96,7 @@
               <table class="table-responsive-sm working-hours my-4">
                 <tr>
                   <td class="responsive-text">Working Days</td>
-                  <td class="text-end responsive-text">8AM - 6PM</td>
+                  <td class="text-end responsive-text">08:00 WIB - 18:00 WIB</td>
                 </tr>
               </table>
             </div>
@@ -107,7 +108,7 @@
       <!-- Product -->
       <section class="pb-5 product">
         <div class="container">
-          <h2 class="text-center mb-4">Product</h2>
+          <h2 class="text-center mb-4">Products</h2>
           <div class="row g-2 p-0 m-5 justify-content-center">
           @forelse ($products as $product)
               <div class="col-lg-3 col-md-3 p-0 contain-card">
@@ -116,7 +117,7 @@
                     <img src="{{ asset('storage/'. $product->image) }}" class="card-img-top" alt="product image" />
                   </div>
                   <div class="card-body">
-                    <a href="#" class="opacity-50 category-name">{{ $product->category->name }}</a>
+                    <p class="opacity-50 category-name mb-0">{{ $product->category->name }}</p>
                     <h5 class="card-title">{{ $product->name }}</h5>
                   </div>
                 </div>
@@ -128,7 +129,7 @@
           @endforelse
           </div>
           <div class="d-flex justify-content-center">
-            <a href="{{ route('user.product') }}" class="btn m-4 btn-md btn-bg-ys">Other Product ></a>
+            <a href="{{ route('user.product') }}" class="btn m-4 btn-md btn-outline-dark">Other Product ></a>
           </div>
         </div>
       </section>
@@ -141,8 +142,8 @@
             <div class="col-md">
               <h2 class="text-center mb-4">Contact Info</h2>
               <ul class="list-group list-group-flush lead fs-4">
-                <li class="list-group-item"><span class="fw-bold">Main Location : </span>Puhpelem, Wonogiri, Jawa Tengah</li>
-                <li class="list-group-item"><span class="fw-bold">Phone Number : </span>+62 81223195851</li>
+                <li class="list-group-item"><span class="fw-bold">Location :<br/> </span>Puhpelem, Wonogiri, Jawa Tengah</li>
+                <li class="list-group-item"><span class="fw-bold">Phone Number :<br/> </span>0812-3281-7620</li>
               </ul>
             </div>
             <div class="col-md">

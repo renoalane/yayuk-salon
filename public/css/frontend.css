@@ -27,8 +27,11 @@ nav .nav-link:hover {
 .first {
     color: #e3d6e0;
 }
+.yayuksalon {
+    font-size: 6rem;
+}
 .responsive-img {
-    width: 30rem;
+    width: 35rem;
 }
 .responsive-img-phone {
     display: none;
@@ -78,17 +81,13 @@ nav .nav-link:hover {
 .service-description {
     text-align: center;
     color: #e3d6e0;
+    font-size: 1.2rem;
 }
 .icon {
     background-color: #e3d6e0;
 }
 .icon:hover {
     box-shadow: 0 4px 8px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
-.btn-bg-ys {
-    background-color: #e3d6e0;
-    color: #000;
 }
 /* End Show Main Service */
 
@@ -108,7 +107,7 @@ nav .nav-link:hover {
 
 /* Show Main Product */
 .card {
-    width: 15rem;
+    width: 17rem;
     height: 14.3rem;
 }
 .card:hover .card-img-top {
@@ -116,7 +115,7 @@ nav .nav-link:hover {
 }
 .card-img-top {
     transition: transform 0.4s;
-    width: 15rem;
+    width: 17rem;
     height: 8.6rem;
     object-fit: contain;
 }
@@ -244,7 +243,7 @@ footer {
     min-height: 75vh;
 }
 .contain-card .card-product {
-    width: 15rem;
+    width: 17rem;
     height: 19rem;
 }
 
@@ -351,6 +350,12 @@ div.scrollmenu a:hover {
     .showcase {
         min-height: 50vh;
     }
+    .yayuksalon {
+        font-size: 5rem;
+    }
+    .responsive-img {
+        width: 27rem;
+    }
     .card-index {
         width: 12rem;
         height: 14.3rem;
@@ -363,11 +368,11 @@ div.scrollmenu a:hover {
 
     /* Product */
     .contain-card .card-product {
-        width: 12rem;
+        width: 13.6rem;
         height: 19rem;
     }
     .card-img-product {
-        width: 12rem;
+        width: 13rem;
         height: 9rem;
     }
     /* End Poduct */
@@ -387,8 +392,11 @@ div.scrollmenu a:hover {
 
 @media (max-width: 992px) {
     /* Index */
+    .yayuksalon {
+        font-size: 3rem;
+    }
     .responsive-img {
-        width: 20rem;
+        width: 24rem;
     }
     .item-3 {
         margin: 8px auto 0px;
@@ -452,7 +460,10 @@ div.scrollmenu a:hover {
         min-height: 47vh;
     }
     .responsive-img {
-        width: 15rem;
+        width: 16rem;
+    }
+    .responsive-div {
+        padding-bottom: 0 !important;
     }
     .icon {
         width: 6.5rem;
@@ -516,6 +527,9 @@ div.scrollmenu a:hover {
     }
     .responsive-text {
         font-size: 0.8rem;
+    }
+    .yayuksalon {
+        font-size: 4rem;
     }
     .card {
         width: 13rem;

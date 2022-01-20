@@ -1,7 +1,7 @@
 <!-- Navbar -->
  <nav class="navbar navbar-expand-lg navbar-dark py-1 fixed-top nav-yayuk-salon">
     <div class="container">
-      <a href="#" class="navbar-brand"><img class="logo" src="{{ asset('assets/img/logoYayukSalon.png') }}" alt="logo" /> Yayuk Salon</a>
+      <a href="{{ route('home') }}" class="navbar-brand"><img class="logo" src="{{ asset('assets/img/logoYayukSalon.png') }}" alt="logo" /> Yayuk Salon</a>
 
       <!-- Responsive NavBar -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">

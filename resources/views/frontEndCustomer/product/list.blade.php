@@ -36,7 +36,7 @@
             <div class="row g-2 p-0 product-list align-self-start">
             @forelse ($products as $product)
                 <div class="col-lg-3 col-sm-6 p-0 contain-card">
-                    <div class="card card-product mx-1">
+                    <div class="card card-product mx-1 d-block mx-auto">
                         <div class="img-card">
                         <img src="{{ asset('storage/'. $product->image) }}" class="card-img-product" alt="" />
                         </div>
