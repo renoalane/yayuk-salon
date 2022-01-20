@@ -44,7 +44,7 @@
                         <div class="col-6">
                             <address>
                             <strong>Nama :</strong><br>
-                                {{ $booking->name }}
+                                {{ $booking->user_name }}
                             </address>
                         </div>
                         <div class="col-6 text-end">
