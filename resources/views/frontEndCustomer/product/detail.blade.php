@@ -15,7 +15,7 @@
               <p>{!! $product->description !!}</p>
             </div>
           </div>
-          <button type="button" onclick="window.history.back()" class="btn btn-sm btn-secondary">Back</button>
+          <button type="button" onclick="window.history.back()" class="btn d-block mx-auto btn-md btn-secondary">Back</button>
         </div>
       </section>
       <!-- End Product Info -->
