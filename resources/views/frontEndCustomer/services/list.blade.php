@@ -11,7 +11,7 @@
               <form class="d-flex">
                 <input class="form-control me-2" type="search" name="q" value="{{ $request['q'] ?? '' }}" placeholder="Search service" aria-label="Search" />
                 <button
-                  class="btn btn-bg-ys btn-sm"
+                  class="btn btn-outline-light btn-sm"
                   type="sub
               mit"
                 >

@@ -4,7 +4,6 @@
     --second-text-color: #bbbec5;
     --second-bg-color: #c1efde;
 }
-
 .primary-text {
     color: var(--main-text-color);
 }

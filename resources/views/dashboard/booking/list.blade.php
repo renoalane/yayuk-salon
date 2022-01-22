@@ -108,7 +108,7 @@
                             @endif
                             <td class="text-center">                       
                                 {{-- button edit --}}
-                                <a href="{{ route('dashboard.booking.edit', $booking->code_booking) }}" class="btn btn-sm btn-warning"><i class="far fa-edit"> Edit Status</i></a>
+                                <a href="{{ route('dashboard.booking.edit', $booking->code_booking) }}" class="btn btn-sm btn-warning"><i class="far fa-edit"> Status</i></a>
                             
                                {{-- button delete --}}
                                <button class="btn btn-sm btn-danger btnDelete" data-bs-toggle='modal' data-id= "{{ $booking->code_booking }}"data-bs-target='#deleteModal'><i class="far fa-trash-alt"> Delete</i></button>

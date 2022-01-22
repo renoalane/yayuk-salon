@@ -1,3 +1,7 @@
+* {
+    font-family: Tahoma, sans-serif;
+}
+
 /* Logo */
 .logo {
     width: 3rem;
@@ -325,7 +329,7 @@ div.scrollmenu a:hover {
 
 /* Service */
 .service {
-    min-height: 60vh;
+    min-height: 100vh;
 }
 
 .item-service {
@@ -449,6 +453,18 @@ div.scrollmenu a:hover {
     /* Index */
     .oper {
         padding: 5em 2em;
+    }
+    .yayuksalon {
+        font-size: 2rem !important;
+    }
+    .span-logo {
+        font-size: 1.4rem;
+    }
+    .show-respon {
+        font-size: 1rem !important;
+    }
+    .res-text {
+        font-size: 0.75rem !important;
     }
     .text-working-hours {
         text-align: center !important;

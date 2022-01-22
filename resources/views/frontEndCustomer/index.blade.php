@@ -25,10 +25,10 @@
             <div class="py-5 mt-5 responsive-div">
               <h1 class="first yayuksalon">Yayuk Salon</h1>
               <h1 class="first"><span class="span-logo">Beauty Salon</span></h1>
-              <p class="fs-6 first">Hadir untuk memberikan pelayanan terbaik untuk para wanita indonesia yang memiliki masalah dalam merawat rambut dan kulit wajah</p>
+              <p class="fs-6 first res-text">Hadir untuk memberikan pelayanan terbaik untuk para wanita indonesia yang memiliki masalah dalam merawat rambut dan kulit wajah</p>
               <div class="d-sm-block ms-0 my-3">
-                <a href="{{ route('user.booking.create') }}" class="btn btn-outline-light btn-lg me-2">Booking</a>
-                <a href="#location" class="btn btn-outline-light btn-lg">Location</a>
+                <a href="{{ route('user.booking.create') }}" class="btn btn-outline-light btn-md me-2">Booking</a>
+                <a href="#location" class="btn btn-outline-light btn-md">Location</a>
               </div>
             </div>
             <img class="img-fluid d-sm-block responsive-img pt-sm-5" src="{{ asset('assets/img/kissping.png') }}" alt="" />
@@ -42,7 +42,7 @@
         <div class="container">
           <div class="description p-lg-5 p-sm-0">
             <h2 class="text-center">Yayuk Salon</h2>
-            <p class="fs-5 text-center">Mengutamakan kenyamanan dan privasi bagi wanita yang ingin melakukan perawatan kecantikan, menjadi prioritas utama Yayuk Salon. Tidak menerima pelanggan pria dan diharapkan memberikan kenyamanan maksimal.</p>
+            <p class="fs-5 text-md-start show-respon">Mengutamakan kenyamanan dan privasi bagi wanita yang ingin melakukan perawatan kecantikan, menjadi prioritas utama Yayuk Salon. Tidak menerima pelanggan pria dan diharapkan memberikan kenyamanan maksimal.</p>
           </div>
           <div class="row g-2 pb-lg-5 px-lg-5 p-sm-0">
             <div class="col-md-6 col-lg-4"><img class="img-fluid rounded" src="{{ asset('assets/img/profil1.jpg') }}" alt="" /></div>
