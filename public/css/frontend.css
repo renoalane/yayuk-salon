@@ -248,7 +248,7 @@ footer {
 }
 .contain-card .card-product {
     width: 17rem;
-    height: 19rem;
+    height: 24rem;
 }
 
 /* Category */
@@ -297,7 +297,7 @@ div.scrollmenu a:hover {
 .card-img-product {
     transition: transform 0.4s;
     width: 15rem;
-    height: 8.6rem;
+    height: 14rem;
     object-fit: contain;
 }
 

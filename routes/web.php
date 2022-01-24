@@ -37,6 +37,14 @@ Route::get('/services/', [UserServiceController::class, 'index'])->name('user.se
 Route::get('/products/', [UserProductController::class, 'index'])->name('user.product');
 Route::get('/products/{product}', [UserProductController::class, 'show'])->name('user.product.show');
 
+// Register
+Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
+
+// Login
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'autenticate']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Booking User
 Route::middleware('auth')->group(function () {
@@ -59,14 +67,6 @@ Route::middleware('auth')->group(function () {
 // End Booking User
 
 
-// Register
-Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
-
-// Login
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'autenticate']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Admin
 Route::middleware('admin')->group(function () {

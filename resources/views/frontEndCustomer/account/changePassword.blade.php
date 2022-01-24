@@ -43,7 +43,7 @@
                             @enderror
                         </div>
                         <div class="form-group mb-0">
-                            <a href="{{ route('home') }}"><button type="button" class="btn btn-sm btn-secondary">Cancel</button></a>
+                            <a href="{{ route('user.account.edit' , $user->username) }}"><button type="button" class="btn btn-sm btn-secondary">Cancel</button></a>
                             <button type="submit" class="btn btn-success btn-sm">Update</button>
                         </div>
                     </form>

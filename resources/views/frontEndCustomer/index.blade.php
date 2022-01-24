@@ -45,9 +45,9 @@
             <p class="fs-5 text-md-start show-respon">Mengutamakan kenyamanan dan privasi bagi wanita yang ingin melakukan perawatan kecantikan, menjadi prioritas utama Yayuk Salon. Tidak menerima pelanggan pria dan diharapkan memberikan kenyamanan maksimal.</p>
           </div>
           <div class="row g-2 pb-lg-5 px-lg-5 p-sm-0">
-            <div class="col-md-6 col-lg-4"><img class="img-fluid rounded" src="{{ asset('assets/img/profil1.jpg') }}" alt="" /></div>
-            <div class="col-md-6 col-lg-4"><img class="img-fluid rounded" src="{{ asset('assets/img/profil2.jpg') }}" alt="" /></div>
-            <div class="col-md-6 col-lg-4 item-3"><img class="img-fluid rounded" src="{{ asset('assets/img/profil3.jpg') }}" alt="" /></div>
+            <div class="col-6 col-lg-4"><img class="img-fluid rounded" src="{{ asset('assets/img/profil1.jpg') }}" alt="" /></div>
+            <div class="col-6 col-lg-4"><img class="img-fluid rounded" src="{{ asset('assets/img/profil2.jpg') }}" alt="" /></div>
+            <div class="col-6 col-lg-4 item-3"><img class="img-fluid rounded" src="{{ asset('assets/img/profil3.jpg') }}" alt="" /></div>
           </div>
         </div>
       </section>
