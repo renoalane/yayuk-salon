@@ -114,13 +114,17 @@ nav .nav-link:hover {
     width: 17rem;
     height: 14.3rem;
 }
+.card-index {
+    width: 15rem;
+    height: 18rem;
+}
 .card:hover .card-img-top {
     transform: scale(1.04);
 }
 .card-img-top {
     transition: transform 0.4s;
     width: 17rem;
-    height: 8.6rem;
+    height: 13rem;
     object-fit: contain;
 }
 /* End Show Main Product */

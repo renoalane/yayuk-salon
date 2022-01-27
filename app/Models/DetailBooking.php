@@ -12,11 +12,11 @@ class DetailBooking extends Model
     protected $guarded = ['id'];
     public function booking()
     {
-        return $this->belongsTo(Booking::class, 'id');
+        return $this->belongsTo(Booking::class);
     }
 
     public function service()
     {
-        return $this->belongsTo(Service::class, 'id');
+        return $this->belongsTo(Service::class);
     }
 }

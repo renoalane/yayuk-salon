@@ -24,18 +24,32 @@ class LoginController extends Controller
 
         if (Auth::attempt($credential)) {
 
+            // cek status akun
             // untuk menghindari session fixsession(teknik hacking)
             $request->session()->regenerate();
 
-            // Check is_admin
-            if (auth()->user()->is_admin === 0) {
+            if (auth()->user()->status === 1) {
 
-                // Customer
-                return redirect()->intended('/');
+                // Check is_admin
+                if (auth()->user()->is_admin === 0) {
+
+                    // Customer
+                    return redirect()->intended('/');
+                } else {
+
+                    // Admin
+                    return redirect()->intended('dashboard');
+                }
             } else {
+                Auth::logout();
 
-                // Admin
-                return redirect()->intended('dashboard');
+                $request->session()->invalidate();
+
+                $request->session()->regenerateToken();
+
+                return redirect()
+                    ->route('login')
+                    ->with('loginError', 'Sorry, your account is blocked, please contact admin');
             }
         }
 

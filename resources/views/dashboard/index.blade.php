@@ -12,7 +12,7 @@
 @section('content')
 <div class="container-fluid px-4">
     <div class="row g-3 my-2">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-6">
             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
                     <h3 class="fs-2">{{ $products }}</h3>
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-6">
             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
                     <h3 class="fs-2">
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-6">
             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
                     <h3 class="fs-2">
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-6">
             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
                     <h3 class="fs-2">{{ $presentase }}%</h3>
@@ -69,7 +69,7 @@
     <div class="row my-5">
         <h3 class="fs-4 mb-3">Recent Bookings</h3>
         <div class="col">
-            <table class="table bg-white rounded shadow-sm  table-hover">
+            <table class="table bg-white rounded shadow-sm responsive-table table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col" width="50">#</th>
@@ -77,7 +77,7 @@
                         <th scope="col">Date</th>
                         <th scope="col">Start Time</th>
                         <th scope="col">End Time</th>
-                        <th scope="col">Price</th>
+                        {{-- <th scope="col">Price</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -88,7 +88,7 @@
                             <td>{{ date('l, d F Y', strtotime($booking->date)) }}</td>
                             <td>{{ date('H:i',strtotime($booking->start_time)) }}</td>
                             <td>{{ date('H:i',strtotime($booking->end_time)) }}</td>
-                            <td>Rp. {{ number_format($booking->total_price) }}</td>
+                            {{-- <td>Rp. {{ number_format($booking->total_price) }}</td> --}}
                         </tr>
                     @empty
                         

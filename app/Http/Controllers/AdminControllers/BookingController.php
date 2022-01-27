@@ -24,9 +24,6 @@ class BookingController extends Controller
         } else {
             $bookings = Booking::orderBy('date', 'asc')->paginate(5);
         }
-        // $bookings = $bookings->when($q, function ($query) use ($q) {
-        //     return $query->where('name', 'like', '%' . $q . '%');
-        // })->paginate(5);
 
         // Menumpuk searching dan pagiation
         $request = $request->all();

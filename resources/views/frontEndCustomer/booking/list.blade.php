@@ -51,9 +51,9 @@
                                 @if ($booking->status === 0)
                                     <td><span class="badge bg-secondary">Wait</span></td>
                                 @elseif($booking->status === 1)
-                                    <td><span class="badge bg-primary">Tinggal Berangkat sesuai hari</span></td>
+                                    <td><span class="badge bg-primary">Terkonfirmasi</span></td>
                                 @elseif($booking->status === 2)
-                                    <td><span class="badge bg-success">Done</span></td>
+                                    <td><span class="badge bg-success">Thank You</span></td>
                                 @else
                                     <td><span class="badge bg-danger">Rejected</span></td>
                                 @endif

@@ -72,7 +72,7 @@
                             <th scope="row">{{ ($users->currentPage()-1) * $users->perPage() + $loop->iteration }}</th>
                             <td>{{ $user->username }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->phone }}</td>
+                            <td>0{{ $user->phone }}</td>
                             @if ($user->is_admin === 1)
                                 <td>Admin</td>
                             @else

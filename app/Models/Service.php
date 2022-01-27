@@ -19,7 +19,7 @@ class Service extends Model
 
     public function detail_booking()
     {
-        return $this->hasMany(DetailBooking::class, 'id');
+        return $this->hasMany(DetailBooking::class);
     }
     public function user()
     {
