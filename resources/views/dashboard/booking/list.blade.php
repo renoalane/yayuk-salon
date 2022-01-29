@@ -11,18 +11,8 @@
 {{-- Content --}}
 @section('content')
     
-    {{-- <!-- Searching -->
     <div class="row g-3 my-2">
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" name="q" value="{{ $request['q'] ?? '' }}" placeholder="Search" aria-label="Search">
-            <button class="btn btn-primary" type="sub
-            mit">Search</button>
-            </form>
-    </div>
-    End Searching --}}
-    {{-- Date --}}
-    <div class="row g-3 my-2">
-        <div class="col-5">
+        <div class="col-9">
             <form class="d-flex">
                 <div class="px-2">
                     <label class="form-label">From</label>
@@ -72,8 +62,8 @@
     {{-- Content Table --}}
     <div class="row my-2">
         <h3 class="fs-4 my-3">List Booking</h3>
-        <div class="col">
-            <table class="table bg-white rounded shadow-sm table-hover table-striped table-responsive-sm">
+        <div class="col table-scroll">
+            <table class="table bg-white rounded shadow-sm table-hover table-striped table-list-book">
                 <thead>
                     <tr>
                         <th scope="col">Code booking</th>
@@ -119,12 +109,9 @@
                     @endforelse
                 </tbody>
             </table>
-
-            {{-- Pagination --}}
-        
-            {{ $bookings->appends($request)->links() }}
-
         </div>
+        {{-- Pagination --}}
+        {{ $bookings->appends($request)->links() }}
     </div>
     {{-- End Content Table --}}
 

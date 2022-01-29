@@ -23,8 +23,8 @@
                 <a href="{{ route('user.booking.create') }}" class="btn btn-sm btn-success">Book Again</a>
             </div>
             @endif
-            <div class="col">
-                <table class="table bg-white rounded shadow-sm table-hover table-striped table-responsive-sm">
+            <div class="col scroll-table">
+                <table class="table bg-white rounded shadow-sm table-hover table-striped table-list">
                     <thead>
                         <tr>
                             <th scope="col" width="50">#</th>

@@ -54,11 +54,11 @@
     {{-- Content Table --}}
     <div class="row my-2">
         <h3 class="fs-4 my-3">List Category</h3>
-        <div class="col">
+        <div class="col table-scroll">
 
             {{-- Table Categories --}}
 
-            <table class="table bg-white rounded shadow-sm table-hover table-striped table-responsive-sm">
+            <table class="table bg-white rounded shadow-sm table-hover table-striped table-list">
                 <thead>
                     <tr>
                         <th scope="col" width="50">#</th>
@@ -92,12 +92,9 @@
                     @endforelse
                 </tbody>
             </table>
-
-            {{-- Pagination --}}
-        
-            {{ $categories->appends($request)->links() }}
-
         </div>
+        {{-- Pagination --}}
+        {{ $categories->appends($request)->links() }}
     </div>
     {{-- End Content Table --}}
 

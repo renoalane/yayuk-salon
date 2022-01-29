@@ -451,6 +451,15 @@ div.scrollmenu a:hover {
         font-size: 1rem;
     }
     /* End Product Info */
+
+    /* Booking */
+    .scroll-table {
+        overflow-x: auto;
+    }
+    .table-list {
+        min-width: 45rem;
+    }
+    /* End Booking */
 }
 
 @media (max-width: 768px) {

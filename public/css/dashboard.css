@@ -48,6 +48,10 @@
     width: 15rem;
 }
 
+table {
+    overflow-x: auto;
+}
+
 #page-content-wrapper {
     min-width: 100vw;
 }
@@ -72,6 +76,21 @@
     border: none;
 }
 
+.table-scroll {
+    overflow-x: auto;
+}
+.table-list {
+    min-width: 30rem;
+}
+.table-list-book {
+    min-width: 70rem;
+}
+.table-list-product {
+    min-width: 36rem;
+}
+.table-list-user {
+    min-width: 55rem;
+}
 @media (min-width: 768px) {
     #sidebar-wrapper {
         margin-left: 0;
