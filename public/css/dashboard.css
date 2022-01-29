@@ -86,6 +86,9 @@ table {
     min-width: 70rem;
 }
 .table-list-product {
+    min-width: 40rem;
+}
+.table-list-service {
     min-width: 36rem;
 }
 .table-list-user {

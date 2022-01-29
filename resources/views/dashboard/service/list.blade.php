@@ -59,7 +59,7 @@
 
             {{-- Table Categories --}}
 
-            <table class="table bg-white rounded shadow-sm table-hover table-striped table-list-product">
+            <table class="table bg-white rounded shadow-sm table-hover table-striped table-list-service">
                 <thead>
                     <tr>
                         <th scope="col" width="50">#</th>
