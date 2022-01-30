@@ -62,10 +62,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/booking/', [UserBookingController::class, 'index'])->name('user.booking');
     Route::get('/booking/create/', [UserBookingController::class, 'create'])->name('user.booking.create');
     Route::post('/booking/', [UserBookingController::class, 'store'])->name('user.booking.store');
-    Route::get('/booking/{booking:code_booking}', [UserBookingController::class, 'show'])->name('user.booking.show');
 });
 // End Booking User
 
+Route::get('/booking/{booking:code_booking}', [UserBookingController::class, 'show'])->name('user.booking.show')->middleware('guest');
 
 
 // Admin
