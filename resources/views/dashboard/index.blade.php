@@ -75,8 +75,7 @@
                         <th scope="col" width="50">#</th>
                         <th scope="col">Code Booking</th>
                         <th scope="col">Date</th>
-                        <th scope="col">Start Time</th>
-                        <th scope="col">End Time</th>
+                        <th scope="col">Time</th>
                         {{-- <th scope="col">Price</th> --}}
                     </tr>
                 </thead>
@@ -86,8 +85,7 @@
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $booking->code_booking }}</td>
                             <td>{{ date('l, d F Y', strtotime($booking->date)) }}</td>
-                            <td>{{ date('H:i',strtotime($booking->start_time)) }}</td>
-                            <td>{{ date('H:i',strtotime($booking->end_time)) }}</td>
+                            <td>{{ date('H:i',strtotime($booking->start_time)) }} WIB - {{ date('H:i',strtotime($booking->end_time)) }} WIB</td> 
                             {{-- <td>Rp. {{ number_format($booking->total_price) }}</td> --}}
                         </tr>
                     @empty
