@@ -23,7 +23,7 @@ nav .nav-link:hover {
 
 /* Showcase */
 .showcase {
-    min-height: 65vh;
+    min-height: 60vh;
 }
 .bg-start {
     background-color: #915898;
@@ -356,7 +356,7 @@ div.scrollmenu a:hover {
 @media (max-width: 1200px) {
     /* Index */
     .showcase {
-        min-height: 50vh;
+        min-height: 44vh;
     }
     .yayuksalon {
         font-size: 5rem;
@@ -462,7 +462,7 @@ div.scrollmenu a:hover {
     /* End Booking */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     /* Index */
     .oper {
         padding: 5em 2em;
@@ -486,10 +486,10 @@ div.scrollmenu a:hover {
         width: 100%;
     }
     .showcase {
-        min-height: 47vh;
+        min-height: 42vh;
     }
     .responsive-img {
-        width: 16rem;
+        width: 21rem;
     }
     .responsive-div {
         padding-bottom: 0 !important;
@@ -608,6 +608,10 @@ div.scrollmenu a:hover {
     .card-img-product {
         width: 12.2rem;
         height: 7.5rem;
+    }
+
+    .responsive-img {
+        width: 18rem;
     }
 
     /* Product Info */

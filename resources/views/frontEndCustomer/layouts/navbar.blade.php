@@ -26,6 +26,21 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Hi, {{ auth()->user()->username }}
             </a>
+            @if (auth()->user()->is_admin === 1)
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <a class="dropdown-item" href="{{ route('dashboard') }}"><i class="bi-layout-text-sidebar-reverse"></i> Dashboard</a>
+                  </li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <form action="{{ route('logout') }}" method="POST">
+                      @csrf
+                      <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
+                    </form>
+                  </li>
+                </ul>
+            @else       
+            @endif
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{{ route('user.booking') }}"><i class="bi bi-layout-text-sidebar-reverse"></i> My Booking</a></li>
               <li><hr class="dropdown-divider"></li>
@@ -40,13 +55,13 @@
             </ul>
           </li>
 
-            @else
+          @else
 
             <li class="nav-item">
             <a href="{{ route('login') }}" class="nav-link logres">Login/Register</a>
             </li>
             
-            @endauth
+          @endauth
         </ul>
       </div>
     </div>

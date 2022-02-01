@@ -41,7 +41,7 @@ class DashboardController extends Controller
         }
 
 
-        $bookings = Booking::select('code_booking', 'date', 'start_time', 'end_time', 'total_price')->where('date', '>=', Carbon::today())->orderBy('date', 'asc')->skip(0)->take(8)->get();
+        $bookings = Booking::select('code_booking', 'date', 'start_time', 'end_time', 'total_price')->where('date', '>=', Carbon::today())->where('status', '=', 0)->orderBy('date', 'asc')->skip(0)->take(8)->get();
         return view('dashboard.index', [
             'active' => 'dashboard',
             'title' => 'dashboard',
