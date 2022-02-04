@@ -15,14 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::create([
-            'name' => 'admin',
-            'username' => 'admin',
-            'is_admin' => 1,
-            'phone' => '8534653743',
-            'email' => 'admin@yayuksalon.com',
-            'password' => bcrypt('admin')
-        ]);
+        // \App\Models\User
     }
 }
 
